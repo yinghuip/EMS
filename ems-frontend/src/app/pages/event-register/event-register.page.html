@@ -39,19 +39,3 @@
     <h2>Event not found</h2>
   </div>
 }
-        <div *ngIf="submitted && form.controls.email.invalid" class="text-danger small">A valid email is required.</div>
-      </div>
-
-      <button class="btn btn-primary" type="submit">Submit</button>
-        <a class="btn btn-secondary ms-2" [routerLink]="['/events', event.id]" *ngIf="event">Back to event</a>
-
-        <div *ngIf="success" class="alert alert-success mt-3">Registration successful — returning to event...</div>
-    </form>
-  </div>
-</ng-container>
-
-<ng-template #notFound>
-  <div class="container mt-4">
-    <h2>Event not found</h2>
-  </div>
-</ng-template>
