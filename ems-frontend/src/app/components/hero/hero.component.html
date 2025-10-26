@@ -5,8 +5,8 @@
     <h1 class="hero-title">{{ event?.title }}</h1>
     <p class="lead hero-blurb">{{ event?.short_description }}</p>
     <div class="hero-actions">
-      <a [routerLink]="['/events', event?.id]" class="btn btn-primary btn-lg me-2">Register Now</a>
-      <a href="#about" class="btn btn-outline-light btn-lg">Learn more</a>
+      <a [routerLink]="['/events', event?.id , 'register']" class="btn btn-primary btn-lg me-2">Register Now</a>
+      <a [routerLink]="['/events', event?.id ]" class="btn btn-outline-light btn-lg">Learn more</a>
     </div>
   </div>
 </section>
