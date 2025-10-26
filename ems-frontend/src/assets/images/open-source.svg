@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ossGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b09b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#96c93d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#ossGrad)"/>
+  <circle cx="400" cy="280" r="120" fill="none" stroke="white" stroke-width="8"/>
+  <path d="M 350 280 L 385 315 L 450 250" stroke="white" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="400" y="470" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle">Open Source</text>
+  <text x="400" y="530" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle">Summit</text>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="startupGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fc4a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f7b733;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#startupGrad)"/>
+  <polygon points="400,150 450,250 550,250 475,320 500,420 400,360 300,420 325,320 250,250 350,250" fill="rgba(255,255,255,0.3)"/>
+  <text x="400" y="500" font-family="Arial, sans-serif" font-size="68" font-weight="bold" fill="white" text-anchor="middle">Pitch Night</text>
+  <text x="400" y="560" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle">Startup Ideas</text>
+</svg>
