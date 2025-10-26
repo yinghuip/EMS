@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EventModel } from '../../models/event.model';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { EventService } from '../../services/event.service';
 import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-event-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './event-detail.page.html',
   styleUrls: ['./event-detail.page.scss']
 })
