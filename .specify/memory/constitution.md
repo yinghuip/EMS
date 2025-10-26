@@ -1,50 +1,39 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# EMS Web Application Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Library-First
+Every feature must start as a small, self-contained library or module. Libraries should have clear public APIs, unit tests, and simple documentation so they can be tested and reasoned about independently.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. HTTP-First (Web API + UI)
+All externally-facing functionality is exposed via well-documented HTTP APIs. The web UI consumes those APIs; server-rendering is allowed when it improves performance or SEO.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Test-First (Mandatory)
+Write automated tests before implementing features: unit tests for libraries, integration tests for service interactions, and end-to-end tests for critical user flows. Every PR must keep the test suite green.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Observability & Reliability
+Emit structured logs (JSON), capture metrics (request rates, error rates, latency), and add distributed traces for cross-service flows. Set up alerting for SLO breaches and high error/latency rates.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Minimal Technical Requirements
+- Backend: a single responsibility service architecture; use a supported runtime (e.g., Node.js, Python, Ruby, or JVM) following the project's conventions.
+- Web API: versioned REST or GraphQL endpoints with clear request/response schemas. Prefer OpenAPI or GraphQL schema documents for contract testing.
+- Frontend: a component-based framework (React/Vue/Svelte) or server-rendered pages; must be buildable with reproducible toolchain and pinned deps.
+- Data: transactional relational DB (Postgres preferred) for core data; use a single source of truth and migration tooling (e.g., Flyway, Liquibase, or framework migrations).
+- CI/CD: every push runs lint, unit tests, and integration tests in CI. Deployments require passing CI and an approved PR; staged environments (staging → production) must exist.
+- Secrets & config: manage secrets via a vault or environment-based secret manager; never commit plaintext secrets.
+- Accessibility: public UI must meet basic accessibility standards (WCAG AA where practical).
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Development Workflow & Quality Gates
+- Branching: use topic branches for features/bugs; PRs required for mainline changes.
+- Reviews: at least one approving review from a maintainer for non-trivial changes; critical changes require two reviewers.
+- Tests: unit tests + one integration test per changed service; add an end-to-end test for user-facing features before merging significant UX changes.
+- Linting & formatting: enforce consistent style automatically (prettier/black + linter).
+- Versioning: follow semantic versioning for public APIs and services; document breaking changes in release notes.
+- Rollbacks & migrations: database migrations must be backward compatible where possible; include rollback steps and migration plans in PR descriptions.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution is the minimal, non-negotiable baseline. Amendments require a documented proposal in a PR and approval by at least two maintainers. All releases and major changes must reference compliance with this constitution in their PR description.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 0.1.0 | **Ratified**: 2025-10-26 | **Last Amended**: 2025-10-26
