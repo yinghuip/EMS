@@ -1,7 +1,7 @@
 @if (event(); as event) {
 <div class="container mt-4">
   <h1>{{ event.title }}</h1>
-  <p class="text-warning">{{ event.start_datetime | date:'fullDate' }} • {{ event.location?.name }}</p>
+  <p class="text-warning">{{ event.start_datetime | date:'fullDate' }} • {{ event.location.name }}</p>
 
   @if (event.hero_image_url) {
   <img [src]="event.hero_image_url" class="img-fluid mb-3" [alt]="event.title" />
@@ -9,7 +9,7 @@
 
   <div [innerHTML]="event.description"></div>
 
-  @if (event.speakers?.length) {
+  @if (event.speakers.length) {
   <section>
     <h2>Speakers</h2>
     <ul>
