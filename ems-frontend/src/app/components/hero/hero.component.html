@@ -1,12 +1,12 @@
-<section class="hero" [ngStyle]="{'background-image': 'url(' + (event?.hero_image_url || '/assets/hero-event.jpg') + ')'}">
+<section class="hero" [ngStyle]="{'background-image': 'url(' + (event()?.hero_image_url || '/assets/hero-event.jpg') + ')'}">
   <div class="hero-overlay"></div>
   <div class="hero-content container">
     <div class="hero-pill">SESSIONS: OCT 17 - 18, 2025</div>
-    <h1 class="hero-title">{{ event?.title }}</h1>
-    <p class="lead hero-blurb">{{ event?.short_description }}</p>
+    <h1 class="hero-title">{{ event()?.title }}</h1>
+    <p class="lead hero-blurb">{{ event()?.short_description }}</p>
     <div class="hero-actions">
-      <a [routerLink]="['/events', event?.id , 'register']" class="btn btn-primary btn-lg me-2">Register Now</a>
-      <a [routerLink]="['/events', event?.id ]" class="btn btn-outline-light btn-lg">Learn more</a>
+      <a [routerLink]="['/events', event()?.id , 'register']" class="btn btn-primary btn-lg me-2">Register Now</a>
+      <a [routerLink]="['/events', event()?.id ]" class="btn btn-outline-light btn-lg">Learn more</a>
     </div>
   </div>
 </section>
