@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f7df1e"/>
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="88" font-weight="bold" fill="#333" text-anchor="middle">JavaScript</text>
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="52" fill="#333" text-anchor="middle">Framework Showdown</text>
+  <text x="250" y="480" font-family="Arial, sans-serif" font-size="32" fill="#555" text-anchor="middle">React</text>
+  <text x="400" y="480" font-family="Arial, sans-serif" font-size="32" fill="#555" text-anchor="middle">Vue</text>
+  <text x="550" y="480" font-family="Arial, sans-serif" font-size="32" fill="#555" text-anchor="middle">Angular</text>
+</svg>

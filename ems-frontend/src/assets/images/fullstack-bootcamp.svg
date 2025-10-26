@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fullstackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#134e5e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#71b280;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#fullstackGrad)"/>
+  <rect x="150" y="150" width="500" height="80" fill="rgba(255,255,255,0.2)"/>
+  <rect x="150" y="260" width="500" height="80" fill="rgba(255,255,255,0.15)"/>
+  <rect x="150" y="370" width="500" height="80" fill="rgba(255,255,255,0.2)"/>
+  <text x="400" y="120" font-family="Arial, sans-serif" font-size="68" font-weight="bold" fill="white" text-anchor="middle">Full Stack</text>
+  <text x="400" y="540" font-family="Arial, sans-serif" font-size="44" fill="white" text-anchor="middle">Web Development</text>
+</svg>

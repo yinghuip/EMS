@@ -5,3 +5,10 @@
 form .form-control.ng-invalid.ng-touched {
   border-color: #dc3545;
 }
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}

@@ -21,4 +21,14 @@ export class EventDetailPage {
       switchMap(params => this.eventService.getEventById(params.get('id') || ''))
     )
   );
+
+  /**
+   * Return true when the event's start time is in the past or now.
+   * Uses the event's start_datetime (ISO string) and client clock.
+   */
+  eventStarted(): boolean {
+    const e = this.event();
+    if (!e || !e.start_datetime) return false;
+    return new Date(e.start_datetime).getTime() <= Date.now();
+  }
 }

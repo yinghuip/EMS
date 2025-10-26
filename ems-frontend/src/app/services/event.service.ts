@@ -17,7 +17,7 @@ export class EventService {
       start_datetime: '2026-03-18T09:00:00Z',
       end_datetime: '2026-03-18T17:00:00Z',
       location: { name: 'Convention Center', address: '123 Main St, City' },
-      hero_image_url: 'assets/images/ng-conf.png',
+      image_url: 'assets/images/ng-conf.png',
       speakers: [
         { name: 'Ada Developer', bio: 'Frontend Engineer' },
         { name: 'Linus Architect', bio: 'Platform Architect' }
@@ -35,7 +35,7 @@ export class EventService {
       start_datetime: '2026-05-15T08:00:00Z',
       end_datetime: '2026-05-16T18:00:00Z',
       location: { name: 'Tech Hub Center', address: '789 Innovation Ave, San Francisco' },
-      hero_image_url: '',
+      image_url: 'assets/images/ai-ml-summit.svg',
       speakers: [
         { name: 'Dr. Sarah Chen', bio: 'AI Research Lead' },
         { name: 'Marcus Stone', bio: 'ML Engineer' }
@@ -53,7 +53,7 @@ export class EventService {
       start_datetime: '2026-06-22T09:00:00Z',
       end_datetime: '2026-06-22T17:00:00Z',
       location: { name: 'Cloud Academy', address: '456 Server St, Seattle' },
-      hero_image_url: '',
+      image_url: 'assets/images/devops-workshop.svg',
       speakers: [{ name: 'James Docker', bio: 'DevOps Specialist' }],
       tags: ['devops', 'workshop', 'cloud'],
       published_at: new Date().toISOString(),
@@ -68,7 +68,7 @@ export class EventService {
       start_datetime: '2026-07-10T09:00:00Z',
       end_datetime: '2026-07-12T17:00:00Z',
       location: { name: 'Mobile Lab', address: '321 App Lane, Austin' },
-      hero_image_url: '',
+      image_url: 'assets/images/mobile-bootcamp.svg',
       speakers: [
         { name: 'Emma Swift', bio: 'iOS Lead Developer' },
         { name: 'Raj Patel', bio: 'Android Architect' }
@@ -86,7 +86,7 @@ export class EventService {
       start_datetime: '2026-08-05T08:30:00Z',
       end_datetime: '2026-08-06T17:30:00Z',
       location: { name: 'Security Center', address: '567 Guard Blvd, Washington DC' },
-      hero_image_url: '',
+      image_url: 'assets/images/cybersecurity-conf.svg',
       speakers: [
         { name: 'Alex Shield', bio: 'Security Researcher' },
         { name: 'Nina Firewall', bio: 'Ethical Hacker' }
@@ -104,7 +104,7 @@ export class EventService {
       start_datetime: '2026-09-14T09:00:00Z',
       end_datetime: '2026-09-15T17:00:00Z',
       location: { name: 'Analytics Arena', address: '890 Data Dr, Boston' },
-      hero_image_url: '',
+      image_url: 'assets/images/data-science-symposium.svg',
       speakers: [{ name: 'Dr. Lisa Numbers', bio: 'Data Scientist' }],
       tags: ['data-science', 'analytics', 'symposium'],
       published_at: new Date().toISOString(),
@@ -119,7 +119,7 @@ export class EventService {
       start_datetime: '2026-10-20T08:00:00Z',
       end_datetime: '2026-10-21T18:00:00Z',
       location: { name: 'Sky Convention Center', address: '234 Cloud Ave, Denver' },
-      hero_image_url: '',
+      image_url: 'assets/images/cloud-summit.svg',
       speakers: [
         { name: 'Chris Lambda', bio: 'Cloud Architect' },
         { name: 'Taylor S3', bio: 'Solutions Engineer' }
@@ -137,7 +137,7 @@ export class EventService {
       start_datetime: '2026-11-08T09:00:00Z',
       end_datetime: '2026-11-09T17:00:00Z',
       location: { name: 'Design Studio', address: '678 Creative Rd, Portland' },
-      hero_image_url: '',
+      image_url: 'assets/images/ux-ui-conference.svg',
       speakers: [{ name: 'Sophie Colors', bio: 'Senior UX Designer' }],
       tags: ['ux', 'ui', 'design', 'conference'],
       published_at: new Date().toISOString(),
@@ -152,7 +152,7 @@ export class EventService {
       start_datetime: '2026-12-03T10:00:00Z',
       end_datetime: '2026-12-04T16:00:00Z',
       location: { name: 'Crypto Hall', address: '999 Chain St, Miami' },
-      hero_image_url: '',
+      image_url: 'assets/images/blockchain-web3.svg',
       speakers: [
         { name: 'Victor Block', bio: 'Blockchain Developer' },
         { name: 'Satoshi Smith', bio: 'Crypto Analyst' }
@@ -171,7 +171,7 @@ export class EventService {
       start_datetime: '2025-01-20T18:30:00Z',
       end_datetime: '2025-01-20T21:30:00Z',
       location: { name: 'Community Hall', address: '456 Dev St, City' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [],
       tags: ['meetup', 'community', 'networking'],
       published_at: new Date().toISOString(),
@@ -186,7 +186,7 @@ export class EventService {
       start_datetime: '2025-02-14T09:00:00Z',
       end_datetime: '2025-02-14T17:00:00Z',
       location: { name: 'Tech Arena', address: '111 Framework Blvd, Chicago' },
-      hero_image_url: '',
+      image_url: 'assets/images/javascript-framework.svg',
       speakers: [
         { name: 'Jordan React', bio: 'Frontend Lead' },
         { name: 'Vue Master', bio: 'JavaScript Expert' }
@@ -204,7 +204,7 @@ export class EventService {
       start_datetime: '2025-03-22T09:00:00Z',
       end_datetime: '2025-03-23T17:00:00Z',
       location: { name: 'Python Center', address: '222 Snake Ave, New York' },
-      hero_image_url: '',
+      image_url: 'assets/images/python-data-science.svg',
       speakers: [{ name: 'Dr. Guido Matrix', bio: 'Data Science Lead' }],
       tags: ['python', 'data-science', 'workshop'],
       published_at: new Date().toISOString(),
@@ -219,7 +219,7 @@ export class EventService {
       start_datetime: '2025-04-10T08:00:00Z',
       end_datetime: '2025-04-12T18:00:00Z',
       location: { name: 'Agile Academy', address: '333 Sprint St, Atlanta' },
-      hero_image_url: '',
+      image_url: 'assets/images/agile-scrum.svg',
       speakers: [{ name: 'Michelle Standups', bio: 'Certified Scrum Master' }],
       tags: ['agile', 'scrum', 'certification', 'workshop'],
       published_at: new Date().toISOString(),
@@ -234,7 +234,7 @@ export class EventService {
       start_datetime: '2025-05-18T09:00:00Z',
       end_datetime: '2025-05-20T17:00:00Z',
       location: { name: 'Gaming Arena', address: '444 Pixel Rd, Los Angeles' },
-      hero_image_url: '',
+      image_url: 'assets/images/game-dev-conf.svg',
       speakers: [
         { name: 'Mario Maker', bio: 'Game Designer' },
         { name: 'Zelda Coder', bio: 'Unity Developer' }
@@ -252,7 +252,7 @@ export class EventService {
       start_datetime: '2025-06-25T18:00:00Z',
       end_datetime: '2025-06-25T22:00:00Z',
       location: { name: 'Startup Hub', address: '555 Venture Ln, Silicon Valley' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [],
       tags: ['startup', 'pitch', 'networking', 'vc'],
       published_at: new Date().toISOString(),
@@ -267,7 +267,7 @@ export class EventService {
       start_datetime: '2025-07-16T09:00:00Z',
       end_datetime: '2025-07-17T17:00:00Z',
       location: { name: 'IoT Lab', address: '666 Connected Dr, Phoenix' },
-      hero_image_url: '',
+      image_url: 'assets/images/iot-workshop.svg',
       speakers: [{ name: 'Alice Sensor', bio: 'IoT Engineer' }],
       tags: ['iot', 'workshop', 'hardware'],
       published_at: new Date().toISOString(),
@@ -282,7 +282,7 @@ export class EventService {
       start_datetime: '2025-08-12T09:00:00Z',
       end_datetime: '2025-08-16T17:00:00Z',
       location: { name: 'Code Academy', address: '777 Stack Ave, Dallas' },
-      hero_image_url: '',
+      image_url: 'assets/images/fullstack-bootcamp.svg',
       speakers: [
         { name: 'Bob Fullstack', bio: 'Senior Developer' },
         { name: 'Carol Backend', bio: 'API Architect' }
@@ -300,7 +300,7 @@ export class EventService {
       start_datetime: '2025-09-08T09:00:00Z',
       end_datetime: '2025-09-09T17:00:00Z',
       location: { name: 'Marketing Center', address: '888 Growth St, Nashville' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [{ name: 'Sam SEO', bio: 'Digital Marketing Expert' }],
       tags: ['marketing', 'seo', 'workshop'],
       published_at: new Date().toISOString(),
@@ -315,7 +315,7 @@ export class EventService {
       start_datetime: '2025-10-15T09:00:00Z',
       end_datetime: '2025-10-16T17:00:00Z',
       location: { name: 'Open Hall', address: '999 Commons Ave, Portland' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [],
       tags: ['open-source', 'community', 'summit'],
       published_at: new Date().toISOString(),
@@ -330,7 +330,7 @@ export class EventService {
       start_datetime: '2025-11-12T09:00:00Z',
       end_datetime: '2025-11-12T17:00:00Z',
       location: { name: 'Empowerment Center', address: '101 Leader Ln, Minneapolis' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [
         { name: 'Grace Hopper Jr.', bio: 'CTO' },
         { name: 'Ada Lovelace II', bio: 'Tech VP' }
@@ -349,7 +349,7 @@ export class EventService {
       start_datetime: '2024-01-15T10:00:00Z',
       end_datetime: '2024-01-15T18:00:00Z',
       location: { name: 'Code Arena', address: '202 Algorithm Ave, Boston' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [],
       tags: ['coding', 'competition', 'challenge'],
       published_at: new Date().toISOString(),
@@ -364,7 +364,7 @@ export class EventService {
       start_datetime: '2024-03-05T09:00:00Z',
       end_datetime: '2024-03-07T17:00:00Z',
       location: { name: 'Container Hub', address: '303 Pod St, San Jose' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [{ name: 'Captain Kubernetes', bio: 'DevOps Architect' }],
       tags: ['docker', 'kubernetes', 'devops', 'masterclass'],
       published_at: new Date().toISOString(),
@@ -379,7 +379,7 @@ export class EventService {
       start_datetime: '2024-04-20T09:00:00Z',
       end_datetime: '2024-04-20T17:00:00Z',
       location: { name: 'Data Center', address: '404 Query Blvd, Seattle' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [
         { name: 'Mongo Master', bio: 'NoSQL Expert' },
         { name: 'Postgres Pro', bio: 'Database Administrator' }
@@ -397,7 +397,7 @@ export class EventService {
       start_datetime: '2024-06-10T09:00:00Z',
       end_datetime: '2024-06-11T17:00:00Z',
       location: { name: 'Ethics Institute', address: '505 Fair Ave, Cambridge' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [{ name: 'Dr. Ethics AI', bio: 'AI Ethics Researcher' }],
       tags: ['ai', 'ethics', 'conference'],
       published_at: new Date().toISOString(),
@@ -412,7 +412,7 @@ export class EventService {
       start_datetime: '2024-07-18T14:00:00Z',
       end_datetime: '2024-07-18T18:00:00Z',
       location: { name: 'Virtual Venue', address: 'Online Event' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [],
       tags: ['remote-work', 'tools', 'productivity'],
       published_at: new Date().toISOString(),
@@ -427,7 +427,7 @@ export class EventService {
       start_datetime: '2024-08-22T09:00:00Z',
       end_datetime: '2024-08-23T17:00:00Z',
       location: { name: 'API Center', address: '606 Query St, Austin' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [{ name: 'Apollo Dev', bio: 'GraphQL Specialist' }],
       tags: ['graphql', 'api', 'workshop'],
       published_at: new Date().toISOString(),
@@ -442,7 +442,7 @@ export class EventService {
       start_datetime: '2024-09-30T10:00:00Z',
       end_datetime: '2024-09-30T17:00:00Z',
       location: { name: 'Career Center', address: '707 Jobs Ave, San Francisco' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [],
       tags: ['career', 'jobs', 'networking', 'fair'],
       published_at: new Date().toISOString(),
@@ -458,7 +458,7 @@ export class EventService {
       start_datetime: '2023-05-15T09:00:00Z',
       end_datetime: '2023-05-16T17:00:00Z',
       location: { name: 'Type Hub', address: '808 Static St, Portland' },
-      hero_image_url: '',
+      image_url: 'assets/images/typescript-deepdive.svg',
       speakers: [{ name: 'Anders Type', bio: 'TypeScript Core Team' }],
       tags: ['typescript', 'javascript', 'workshop'],
       published_at: new Date().toISOString(),
@@ -473,7 +473,7 @@ export class EventService {
       start_datetime: '2023-08-10T09:00:00Z',
       end_datetime: '2023-08-12T17:00:00Z',
       location: { name: 'Architecture Lab', address: '909 Service Rd, Denver' },
-      hero_image_url: '',
+      image_url: 'assets/images/microservices-arch.svg',
       speakers: [
         { name: 'Martin Fowler Jr.', bio: 'Software Architect' },
         { name: 'Sam Newman II', bio: 'Microservices Expert' }
@@ -491,7 +491,7 @@ export class EventService {
       start_datetime: '2023-12-15T17:00:00Z',
       end_datetime: '2023-12-15T20:00:00Z',
       location: { name: 'Retrospective Hall', address: '1010 Review Ave, Chicago' },
-      hero_image_url: '',
+      image_url: '',
       speakers: [],
       tags: ['retrospective', 'trends', 'panel'],
       published_at: new Date().toISOString(),

@@ -31,6 +31,7 @@ export class EventRegisterPage {
   readonly eventId = signal('');
   readonly submitted = signal(false);
   readonly success = signal(false);
+  readonly eventStartedError = signal(false);
 
   readonly form = this.fb.group({
     firstName: ['', [Validators.required]],
@@ -49,8 +50,23 @@ export class EventRegisterPage {
     )
   );
 
+  eventStarted(): boolean {
+    const e = this.event();
+    if (!e || !e.start_datetime) return false;
+    return new Date(e.start_datetime).getTime() <= Date.now();
+  }
+
   submit() {
     this.submitted.set(true);
+    this.eventStartedError.set(false);
+
+    // Prevent registrations if the event has already started.
+    if (this.eventStarted()) {
+      // Show inline error message instead of alert
+      this.eventStartedError.set(true);
+      return;
+    }
+
     if (this.form.invalid) return;
 
     const formValue = this.form.value as RegistrationForm;

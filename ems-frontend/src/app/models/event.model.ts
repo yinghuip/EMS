@@ -20,7 +20,7 @@ export interface EventModel {
   start_datetime: string;
   end_datetime: string;
   location: Location;
-  hero_image_url: string;
+  image_url: string;
   gallery?: string[];
   speakers: Speaker[];
   tags: string[];

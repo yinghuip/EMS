@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blockGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd89b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#19547b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#blockGrad)"/>
+  <rect x="300" y="150" width="80" height="80" fill="rgba(255,255,255,0.2)" transform="rotate(45 340 190)"/>
+  <rect x="420" y="150" width="80" height="80" fill="rgba(255,255,255,0.2)" transform="rotate(45 460 190)"/>
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="white" text-anchor="middle">Blockchain</text>
+  <text x="400" y="430" font-family="Arial, sans-serif" font-size="56" fill="white" text-anchor="middle">&amp; Web3</text>
+  <text x="400" y="500" font-family="Arial, sans-serif" font-size="36" fill="rgba(255,255,255,0.9)" text-anchor="middle">Forum</text>
+</svg>

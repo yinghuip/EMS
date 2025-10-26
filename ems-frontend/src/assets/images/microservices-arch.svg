@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="microGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#283c86;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#45a247;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#microGrad)"/>
+  <rect x="150" y="200" width="120" height="120" fill="rgba(255,255,255,0.2)" rx="8"/>
+  <rect x="340" y="200" width="120" height="120" fill="rgba(255,255,255,0.2)" rx="8"/>
+  <rect x="530" y="200" width="120" height="120" fill="rgba(255,255,255,0.2)" rx="8"/>
+  <text x="400" y="420" font-family="Arial, sans-serif" font-size="58" font-weight="bold" fill="white" text-anchor="middle">Microservices</text>
+  <text x="400" y="490" font-family="Arial, sans-serif" font-size="42" fill="white" text-anchor="middle">Architecture</text>
+</svg>

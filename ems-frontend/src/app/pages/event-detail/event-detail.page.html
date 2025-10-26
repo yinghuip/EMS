@@ -3,8 +3,8 @@
   <h1>{{ event.title }}</h1>
   <p class="text-warning">{{ event.start_datetime | date:'fullDate' }} • {{ event.location.name }}</p>
 
-  @if (event.hero_image_url) {
-  <img [src]="event.hero_image_url" class="img-fluid mb-3" [alt]="event.title" />
+  @if (event.image_url) {
+  <img [src]="event.image_url" class="img-fluid mb-3" [alt]="event.title" />
   }
 
   <div [innerHTML]="event.description"></div>
@@ -20,7 +20,11 @@
   </section>
   }
 
-  <a class="btn btn-primary mt-3" [routerLink]="['/events', event.id, 'register']">Register</a>
+  <button class="btn btn-primary mt-3" [routerLink]="['/events', event.id, 'register']" [disabled]="eventStarted()">Register</button>
+  @if (eventStarted()) {
+    <br>
+    <span class="ms-2 text-danger small" title="Event has already started">Event started</span>
+  }
 </div>
 } @else {
 <div class="container mt-4">
