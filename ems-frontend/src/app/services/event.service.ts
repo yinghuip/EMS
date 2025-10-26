@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Injectable, signal, computed } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
+import { Observable } from 'rxjs';
 import { EventModel } from '../models/event.model';
 
 @Injectable({ providedIn: 'root' })
 export class EventService {
-  private events: EventModel[] = [
+  private eventsSignal = signal<EventModel[]>([
     {
       id: '1',
       title: 'Modern Web Conference 2026',
@@ -23,6 +24,41 @@ export class EventService {
       published_at: new Date().toISOString(),
       is_featured: true
     },
+    {
+      id: '2',
+      title: 'Local Dev Meetup',
+      short_description: 'Community meetup for local developers.',
+      description: '<p>Monthly meetup for developers to network and share knowledge.</p>',
+      start_datetime: '2026-01-20T18:30:00Z',
+      end_datetime: '2026-01-20T21:30:00Z',
+      location: { name: 'Community Hall', address: '456 Dev St, City' },
+      tags: ['meetup', 'community'],
+      published_at: new Date().toISOString(),
+      is_featured: false
+    }
+  ]);
+
+  private latestEventSignal = computed(() => {
+    const events = this.eventsSignal();
+    const featured = events.find(e => e.is_featured);
+    if (featured) return featured;
+    return events.sort((a, b) => 
+      new Date(b.published_at!).getTime() - new Date(a.published_at!).getTime()
+    )[0];
+  });
+
+  getEvents(): Observable<EventModel[]> {
+    return toObservable(this.eventsSignal);
+  }
+
+  getLatest(): Observable<EventModel | undefined> {
+    return toObservable(this.latestEventSignal);
+  }
+
+  getEventById(id: string): Observable<EventModel | undefined> {
+    return toObservable(computed(() => this.eventsSignal().find(e => e.id === id)));
+  }
+}
     {
       id: '2',
       title: 'Local Dev Meetup',

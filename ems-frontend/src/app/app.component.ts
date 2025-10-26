@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, signal, effect, HostListener } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
@@ -9,14 +9,21 @@ import { RouterOutlet, RouterLink } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'ems-frontend';
-  isScrolled = false;
-  private scrollThreshold = 80; // px
+  private readonly scrollThreshold = 80; // px
+  readonly title = signal('ems-frontend');
+  readonly isScrolled = signal(false);
+
+  constructor() {
+    effect(() => {
+      // This effect will run whenever isScrolled changes
+      document.body.classList.toggle('header-scrolled', this.isScrolled());
+    });
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const y = typeof window !== 'undefined' ? window.scrollY || window.pageYOffset : 0;
-    this.isScrolled = y > this.scrollThreshold;
+    this.isScrolled.set(y > this.scrollThreshold);
   }
 }
 

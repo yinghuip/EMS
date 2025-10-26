@@ -1,5 +1,5 @@
 
-<header class="site-header py-3" [class.scrolled]="isScrolled" style="background:linear-gradient(90deg, rgba(0,0,0,0.6), transparent);">
+<header class="site-header py-3" [class.scrolled]="isScrolled()" style="background:linear-gradient(90deg, rgba(0,0,0,0.6), transparent);">
 	<div class="container d-flex align-items-center justify-content-between">
 		<div class="brand d-flex align-items-center gap-3">
 			<div class="brand-mark" style="width:44px;height:44px;background:var(--accent);border-radius:6px;"></div>
@@ -9,9 +9,9 @@
 			<a routerLink="/" class="nav-link">Home</a>
 			<a routerLink="/about" class="nav-link">About</a>
 			<a routerLink="/events/1" class="nav-link">Events</a>
-			<a class="btn btn btn-outline-warning" href="#">Register</a>
+			<a class="btn btn btn-outline-warning" routerLink="/events/1/register">Register</a>
 		</nav>
-		<button class="btn btn-primary d-md-none">Menu</button>
+		<button class="btn btn-primary d-md-none" type="button">Menu</button>
 	</div>
 </header>
 

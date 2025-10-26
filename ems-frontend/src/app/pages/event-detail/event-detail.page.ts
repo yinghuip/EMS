@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { EventModel } from '../../models/event.model';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { EventService } from '../../services/event.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { switchMap } from 'rxjs/operators';
 
 @Component({
@@ -14,11 +13,12 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./event-detail.page.scss']
 })
 export class EventDetailPage {
-  event$!: Observable<EventModel | undefined>;
+  private route = inject(ActivatedRoute);
+  private eventService = inject(EventService);
 
-  constructor(private route: ActivatedRoute, private eventService: EventService) {
-    this.event$ = this.route.paramMap.pipe(
-      switchMap((params) => this.eventService.getEventById(params.get('id') || ''))
-    );
-  }
+  readonly event = toSignal(
+    this.route.paramMap.pipe(
+      switchMap(params => this.eventService.getEventById(params.get('id') || ''))
+    )
+  );
 }

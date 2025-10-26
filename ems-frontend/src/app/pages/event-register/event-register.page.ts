@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { EventService } from '../../services/event.service';
 import { RegistrationService } from '../../services/registration.service';
-import { Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { EventModel } from '../../models/event.model';
+
+interface RegistrationForm {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
 
 @Component({
   selector: 'app-event-register',
@@ -15,43 +22,46 @@ import { switchMap, map } from 'rxjs/operators';
   styleUrls: ['./event-register.page.scss']
 })
 export class EventRegisterPage {
-  eventId = '';
-  event$: Observable<any> | undefined;
-  form: any;
+  private route = inject(ActivatedRoute);
+  private eventService = inject(EventService);
+  private registrationService = inject(RegistrationService);
+  private fb = inject(FormBuilder);
+  private router = inject(Router);
 
-  submitted = false;
-  success = false;
+  readonly eventId = signal('');
+  readonly submitted = signal(false);
+  readonly success = signal(false);
 
-  constructor(
-    private route: ActivatedRoute,
-    private eventService: EventService,
-    private registrationService: RegistrationService,
-    private fb: FormBuilder,
-    private router: Router
-  ) {
-    this.form = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
-    });
+  readonly form = this.fb.group({
+    firstName: ['', [Validators.required]],
+    lastName: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]]
+  });
 
-    this.event$ = this.route.paramMap.pipe(
-      map((pm) => pm.get('id') || ''),
-      switchMap((id) => {
-        this.eventId = id;
-        return this.eventService.getEventById(id);
-      })
-    );
-  }
+  readonly event = toSignal(
+    this.route.paramMap.pipe(
+      map(pm => {
+        const id = pm.get('id') || '';
+        this.eventId.set(id);
+        return id;
+      }),
+      switchMap(id => this.eventService.getEventById(id))
+    )
+  );
 
   submit() {
-    this.submitted = true;
+    this.submitted.set(true);
     if (this.form.invalid) return;
-    const { firstName, lastName, email } = this.form.value as any;
-    this.registrationService.register(this.eventId, firstName, lastName, email).subscribe(() => {
-      this.success = true;
-      // Optionally navigate back after a short delay
-      setTimeout(() => this.router.navigate(['/events', this.eventId]), 1200);
+
+    const formValue = this.form.value as RegistrationForm;
+    this.registrationService.register(
+      this.eventId(), 
+      formValue.firstName, 
+      formValue.lastName, 
+      formValue.email
+    ).subscribe(() => {
+      this.success.set(true);
+      setTimeout(() => this.router.navigate(['/events', this.eventId()]), 1200);
     });
   }
 }

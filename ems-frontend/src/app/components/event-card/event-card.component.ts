@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
@@ -12,5 +12,5 @@ import { EventModel } from '../../models/event.model';
   styleUrls: ['./event-card.component.scss']
 })
 export class EventCardComponent {
-  @Input() event?: EventModel;
+  event = input<EventModel>();
 }

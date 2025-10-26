@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { EventModel } from '../../models/event.model';
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { EventCardComponent } from '../../components/event-card/event-card.component';
@@ -15,11 +14,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
   styleUrls: ['./landing.page.scss']
 })
 export class LandingPage {
-  latest$!: Observable<EventModel | undefined>;
-  events$!: Observable<EventModel[]>;
-
-  constructor(private eventService: EventService) {
-    this.latest$ = this.eventService.getLatest();
-    this.events$ = this.eventService.getEvents();
-  }
+  private eventService = inject(EventService);
+  
+  readonly latest = toSignal(this.eventService.getLatest());
+  readonly events = toSignal(this.eventService.getEvents(), { initialValue: [] });
 }

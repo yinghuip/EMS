@@ -1,14 +1,14 @@
 <div class="container mt-4">
-  @if (latest$ | async; as latest) {
-    <app-hero [event]="latest"></app-hero>
+  @if (latest(); as latestEvent) {
+    <app-hero [event]="latestEvent"></app-hero>
   }
 
   <section class="upcoming-events mt-4">
     <h2>Upcoming events</h2>
     <div class="row">
-      @for (e of (events$ | async); track e) {
+      @for (event of events(); track event.id) {
         <div class="col-12">
-          <app-event-card [event]="e"></app-event-card>
+          <app-event-card [event]="event"></app-event-card>
         </div>
       }
     </div>
