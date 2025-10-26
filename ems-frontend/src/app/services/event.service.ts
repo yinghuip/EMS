@@ -14,7 +14,7 @@ export class EventService {
       start_datetime: '2026-03-18T09:00:00Z',
       end_datetime: '2026-03-18T17:00:00Z',
       location: { name: 'Convention Center', address: '123 Main St, City' },
-      hero_image_url: '/assets/hero-event.jpg',
+      hero_image_url: 'assets/images/ng-conf.png',
       speakers: [
         { name: 'Ada Developer', bio: 'Frontend Engineer' },
         { name: 'Linus Architect', bio: 'Platform Architect' }

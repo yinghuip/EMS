@@ -1,19 +1,26 @@
-<div class="container mt-4" *ngIf="event$ | async as event; else notFound">
-  <h1>{{ event.title }}</h1>
-  <p class="text-muted">{{ event.start_datetime | date:'fullDate' }} • {{ event.location?.name }}</p>
-  <img *ngIf="event.hero_image_url" [src]="event.hero_image_url" class="img-fluid mb-3" alt="{{event.title}}" />
-  <div [innerHTML]="event.description"></div>
-  <section *ngIf="event.speakers?.length">
-    <h2>Speakers</h2>
-    <ul>
-      <li *ngFor="let s of event.speakers">{{ s.name }} — {{ s.bio }}</li>
-    </ul>
-  </section>
-  <a class="btn btn-primary mt-3" href="#">Register</a>
-</div>
-
-<ng-template #notFound>
+@if (event$ | async; as event) {
+  <div class="container mt-4">
+    <h1>{{ event.title }}</h1>
+    <p class="text-muted">{{ event.start_datetime | date:'fullDate' }} • {{ event.location?.name }}</p>
+    @if (event.hero_image_url) {
+      <img [src]="event.hero_image_url" class="img-fluid mb-3" alt="{{event.title}}" />
+    }
+    <div [innerHTML]="event.description"></div>
+    @if (event.speakers?.length) {
+      <section>
+        <h2>Speakers</h2>
+        <ul>
+          @for (s of event.speakers; track s) {
+            <li>{{ s.name }} — {{ s.bio }}</li>
+          }
+        </ul>
+      </section>
+    }
+    <a class="btn btn-primary mt-3" href="#">Register</a>
+  </div>
+} @else {
   <div class="container mt-4">
     <h2>Event not found</h2>
   </div>
-</ng-template>
+}
+

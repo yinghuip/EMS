@@ -1,7 +1,9 @@
 <mat-card class="event-card mb-3">
   <div class="row g-0">
     <div class="col-4">
-      <img *ngIf="event?.hero_image_url" [src]="event?.hero_image_url" class="img-fluid" alt="{{event?.title}}" />
+      @if (event?.hero_image_url) {
+        <img [src]="event?.hero_image_url" class="img-fluid" alt="{{event?.title}}" />
+      }
     </div>
     <div class="col-8">
       <mat-card-content class="p-2">

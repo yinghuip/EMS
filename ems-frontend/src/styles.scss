@@ -72,6 +72,21 @@ footer.site-footer { padding: 3rem 1rem; color: var(--muted); text-align: center
 	transform: translateY(0);
 }
 
+/* Nav link styling: white and bold */
+.site-header .nav-link {
+	color: #fff !important;
+	font-weight: 700;
+	opacity: 0.95;
+}
+.site-header .nav-link:hover,
+.site-header .nav-link:focus {
+	color: #fff !important;
+	opacity: 1;
+	text-decoration: none;
+}
+
+.site-header .brand-title { color: #fff; font-weight: 800; }
+
 /* push main content down a bit so content isn't obscured on some devices */
 main { scroll-margin-top: 6rem; }
 
