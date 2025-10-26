@@ -6,12 +6,12 @@ import { RouterModule } from '@angular/router';
 import { EventModel } from '../../models/event.model';
 
 @Component({
-  selector: 'app-hero',
+  selector: 'app-feature-event',
   standalone: true,
   imports: [CommonModule, MatCardModule, MatButtonModule, RouterModule],
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss']
+  templateUrl: './feature-event.component.html',
+  styleUrls: ['./feature-event.component.scss']
 })
-export class HeroComponent {
+export class FeatureEventComponent {
   event = input<EventModel>();
 }

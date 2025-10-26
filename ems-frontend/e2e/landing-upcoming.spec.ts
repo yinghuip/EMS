@@ -16,7 +16,8 @@ test('landing shows up to 3 upcoming events within 90 days', async ({ page }) =>
 
   // If there is at least one card, the View all events link should exist
   if (count > 0) {
-    await expect(page.getByRole('link', { name: /view all events/i })).toBeVisible();
+    const viewAll = page.locator('a', { hasText: /view all events/i });
+    await expect(viewAll).toBeVisible({ timeout: 5000 });
   } else {
     // If none, the empty message should be visible
     await expect(section).toContainText(/no upcoming events in the next 90 days/i);

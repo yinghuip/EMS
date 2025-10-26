@@ -1,4 +1,14 @@
-<mat-card class="event-card mb-3">
+<mat-card
+  class="event-card mb-3"
+  role="link"
+  tabindex="0"
+  (click)="navigate($event)"
+  (keydown.enter)="navigate($event)"
+  (keydown.space)="onSpace($any($event))"
+  style="position:relative;"
+>
+  <!-- overlay anchor covers the card and delegates navigation to RouterLink; stopPropagation prevents double handlers -->
+  <a class="card-link-overlay" [routerLink]="['/events', event()?.id]" (click)="$event.stopPropagation()" aria-hidden="true"></a>
   <div class="row g-0">
     <div class="col-4">
       @if (event()?.hero_image_url) {
@@ -7,7 +17,7 @@
     </div>
     <div class="col-8">
       <mat-card-content class="p-2">
-        <h3 class="h6 mb-1"><a [routerLink]="['/events', event()?.id]">{{ event()?.title }}</a></h3>
+        <h3 class="h6 mb-1">{{ event()?.title }}</h3>
         <p class="mb-1 text-muted small">{{ event()?.short_description }}</p>
         <p class="small text-muted">{{ event()?.start_datetime | date:'medium' }}</p>
       </mat-card-content>

@@ -42,3 +42,10 @@
     background: var(--surface);
   }
 }
+
+.card-link-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  text-indent: -9999px;
+}

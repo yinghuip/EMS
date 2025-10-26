@@ -12,7 +12,7 @@ const config: PlaywrightTestConfig = {
     command: 'npm start',
     port: 4200,
     timeout: 120 * 1000,
-    reuseExistingServer: false
+    reuseExistingServer: true
   }
 };
 

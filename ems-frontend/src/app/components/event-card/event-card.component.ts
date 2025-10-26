@@ -1,7 +1,7 @@
-import { Component, input } from '@angular/core';
+import { Component, input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { EventModel } from '../../models/event.model';
 
 @Component({
@@ -13,4 +13,20 @@ import { EventModel } from '../../models/event.model';
 })
 export class EventCardComponent {
   event = input<EventModel>();
+  private router = inject(Router);
+
+  navigate(e?: Event) {
+    // allow inner interactive controls to stop propagation
+    if (e) e.stopPropagation();
+    const id = this.event()?.id;
+    if (id) {
+      this.router.navigate(['/events', id]);
+    }
+  }
+
+  onSpace(e: KeyboardEvent) {
+    // prevent page scroll
+    e.preventDefault();
+    this.navigate(e as unknown as Event);
+  }
 }
