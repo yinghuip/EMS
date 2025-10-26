@@ -14,6 +14,9 @@ import { EventModel } from '../../models/event.model';
 export class EventCardComponent {
   event = input<EventModel>();
   private router = inject(Router);
+  // Inline tiny fallback pixel to avoid broken image icons
+  readonly fallbackSrc =
+    'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
 
   navigate(e?: Event) {
     // allow inner interactive controls to stop propagation
@@ -28,5 +31,12 @@ export class EventCardComponent {
     // prevent page scroll
     e.preventDefault();
     this.navigate(e as unknown as Event);
+  }
+
+  onImgError(ev: Event) {
+    const img = ev.target as HTMLImageElement | null;
+    if (img && img.src !== this.fallbackSrc) {
+      img.src = this.fallbackSrc;
+    }
   }
 }

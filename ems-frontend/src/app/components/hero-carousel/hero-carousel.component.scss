@@ -1,0 +1,440 @@
+// ============================================================================
+// HERO CAROUSEL COMPONENT STYLES
+// ============================================================================
+
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--surface, #121214);
+  
+  // Full-width layout - extend to viewport edges
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+// ============================================================================
+// CAROUSEL VIEWPORT
+// ============================================================================
+
+.carousel-viewport {
+  position: relative;
+  width: 100%;
+  
+  // Aspect ratio: 21:9 on desktop, 16:9 on tablet, 4:3 on mobile
+  aspect-ratio: 21 / 9;
+  
+  @media (max-width: 1199px) {
+    aspect-ratio: 16 / 9;
+  }
+  
+  @media (max-width: 767px) {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+// ============================================================================
+// CAROUSEL ITEMS
+// ============================================================================
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 600ms ease-in-out, transform 600ms ease-in-out, visibility 600ms;
+  will-change: opacity, transform;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+    transform: translateX(0);
+  }
+  
+  // Exit animations
+  &.exit-left {
+    z-index: 1;
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  
+  &.exit-right {
+    z-index: 1;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  
+  // Enter animations (items waiting off-screen)
+  &.enter-right {
+    transform: translateX(100%);
+  }
+  
+  &.enter-left {
+    transform: translateX(-100%);
+  }
+}
+
+// ============================================================================
+// EVENT CARD (Clickable)
+// ============================================================================
+
+.event-card {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: var(--text, #ffffff);
+  cursor: pointer;
+  transition: transform 200ms ease;
+  
+  &:hover {
+    transform: scale(1.02);
+    
+    .cta-button {
+      background: var(--accent, #f4c542);
+      transform: translateX(8px);
+    }
+  }
+  
+  &:focus-visible {
+    outline: 3px solid var(--accent, #f4c542);
+    outline-offset: -3px;
+  }
+}
+
+// ============================================================================
+// EVENT IMAGE
+// ============================================================================
+
+.event-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+// ============================================================================
+// OVERLAY GRADIENT
+// ============================================================================
+
+.overlay-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  z-index: 2;
+  
+  @media (max-width: 767px) {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  }
+}
+
+// ============================================================================
+// EVENT INFO OVERLAY
+// ============================================================================
+
+.event-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  padding: 3rem 5%;
+  
+  @media (max-width: 1199px) {
+    padding: 2rem 4%;
+  }
+  
+  @media (max-width: 767px) {
+    align-items: flex-end;
+    padding: 2rem 1.5rem;
+  }
+}
+
+.event-content {
+  max-width: 600px;
+  
+  @media (max-width: 767px) {
+    max-width: 100%;
+  }
+}
+
+.event-date {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent, #f4c542);
+  margin-bottom: 0.75rem;
+  
+  @media (max-width: 767px) {
+    font-size: 0.75rem;
+  }
+}
+
+.event-title {
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  
+  @media (max-width: 767px) {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    margin-bottom: 0.75rem;
+  }
+}
+
+.event-venue {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  
+  svg {
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 767px) {
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.event-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  
+  // Clamp to 2 lines
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  
+  @media (max-width: 767px) {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    -webkit-line-clamp: 1;
+  }
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: rgba(244, 197, 66, 0.9);
+  color: #111;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: 4px;
+  transition: background 200ms ease, transform 200ms ease;
+  
+  svg {
+    transition: transform 200ms ease;
+  }
+  
+  @media (max-width: 767px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+// ============================================================================
+// NAVIGATION CONTROLS
+// ============================================================================
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 10;
+  pointer-events: none;
+  
+  @media (max-width: 767px) {
+    padding: 0 1rem;
+  }
+}
+
+.carousel-btn {
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  min-width: 48px; // Ensure minimum touch target
+  min-height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 200ms ease, transform 200ms ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  &:focus-visible {
+    outline: 3px solid var(--accent, #f4c542);
+    outline-offset: 2px;
+  }
+  
+  @media (max-width: 767px) {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+// ============================================================================
+// PAGINATION INDICATORS
+// ============================================================================
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  gap: 0.75rem;
+  z-index: 10;
+  
+  @media (max-width: 767px) {
+    bottom: 1rem;
+    gap: 0.5rem;
+  }
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  min-height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 0;
+  transition: background 200ms ease, transform 200ms ease;
+  
+  &.active {
+    background: var(--accent, #f4c542);
+    transform: scale(1.2);
+  }
+  
+  &:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.6);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--accent, #f4c542);
+    outline-offset: 2px;
+  }
+  
+  @media (max-width: 767px) {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    min-height: 10px;
+  }
+}
+
+// ============================================================================
+// EMPTY STATE
+// ============================================================================
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 3rem 2rem;
+  background: var(--surface, #121214);
+}
+
+.empty-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  opacity: 0.5;
+  margin-bottom: 1.5rem;
+}
+
+.empty-text {
+  font-size: 1.125rem;
+  color: var(--muted, #9aa0a6);
+  margin: 0;
+}
+
+// ============================================================================
+// PERFORMANCE OPTIMIZATIONS
+// ============================================================================
+
+// Hardware acceleration for smooth animations
+.carousel-item,
+.event-card,
+.cta-button {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+// Reduce motion for accessibility
+@media (prefers-reduced-motion: reduce) {
+  .carousel-item,
+  .event-card,
+  .cta-button,
+  .carousel-btn,
+  .indicator {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

@@ -12,6 +12,32 @@
 	--container-max: 1100px;
 }
 
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================
+   Mobile-first approach with min-width queries
+   
+   Breakpoint Values (matching Bootstrap 5):
+   - Mobile (xs):  < 576px (default, no query needed)
+   - Mobile (sm):  >= 576px
+   - Tablet (md):  >= 768px
+   - Desktop (lg): >= 992px
+   - Desktop (xl): >= 1200px
+   - Desktop (xxl): >= 1400px
+   
+   Project Requirements (from spec):
+   - Mobile:  375px+ (1 column grid)
+   - Tablet:  768px+ (2 column grid)
+   - Desktop: 1200px+ (4 column grid)
+   
+   Touch Targets:
+   - Minimum 44x44px on mobile for accessibility
+   
+   Usage Examples:
+   @media (min-width: 768px) { ... }  // Tablet and up
+   @media (min-width: 1200px) { ... } // Desktop and up
+   ============================================ */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
 html, body {

@@ -28,12 +28,18 @@ describe('EventRegisterPage', () => {
     eventServiceSpy = jasmine.createSpyObj('EventService', ['getEventById']);
     eventServiceSpy.getEventById.and.returnValue(of(mockEvent));
 
-    @Component({ template: '' })
+    @Component({
+      standalone: true,
+      template: ''
+    })
     class DummyComponent {}
 
     await TestBed.configureTestingModule({
-      imports: [EventRegisterPage, RouterTestingModule.withRoutes([{ path: 'events/:id', component: DummyComponent }])],
-      declarations: [DummyComponent],
+      imports: [
+        EventRegisterPage,
+        RouterTestingModule.withRoutes([{ path: 'events/:id', component: DummyComponent }]),
+        DummyComponent
+      ],
       providers: [
         { provide: ActivatedRoute, useValue: { paramMap: of(convertToParamMap({ id: '1' })) } },
         { provide: RegistrationService, useValue: registrationSpy },

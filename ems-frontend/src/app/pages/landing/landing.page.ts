@@ -1,19 +1,25 @@
 import { Component, inject, computed, effect, OnDestroy, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 import { FeatureEventComponent } from '../../components/feature-event/feature-event.component';
+import { HeroCarouselComponent } from '../../components/hero-carousel/hero-carousel.component';
+import { EventGridComponent } from '../../components/event-grid/event-grid.component';
+import { CalendarViewComponent } from '../../components/calendar-view/calendar-view.component';
+import { PastConcertsComponent } from '../../components/past-concerts/past-concerts.component';
 import { EventService } from '../../services/event.service';
-import { RouterLink } from '@angular/router';
+import { EventModel } from '../../models/event.model';
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule, FeatureEventComponent, RouterLink],
+  imports: [CommonModule, FeatureEventComponent, HeroCarouselComponent, EventGridComponent, CalendarViewComponent, PastConcertsComponent, RouterLink],
   templateUrl: './landing.page.html',
   styleUrls: ['./landing.page.scss']
 })
 export class LandingPage implements OnDestroy {
   private eventService = inject(EventService);
+  private router = inject(Router);
   private timer: any;
   
   readonly latest = toSignal(this.eventService.getLatest());
@@ -27,6 +33,22 @@ export class LandingPage implements OnDestroy {
     return all
       .filter((e) => new Date(e.start_datetime) > now)
       .sort((a, b) => new Date(a.start_datetime).getTime() - new Date(b.start_datetime).getTime());
+  });
+
+  // Featured events for hero carousel: next 3-5 upcoming events (chronologically)
+  readonly featuredEvents = computed(() => {
+    const upcoming = this.upcomingEvents();
+    return upcoming.slice(0, Math.min(5, upcoming.length));
+  });
+
+  // Past events: events with start_datetime < now, sorted by date descending (most recent first)
+  readonly pastEvents = computed(() => {
+    const all = this.events();
+    const now = new Date();
+
+    return all
+      .filter((e) => new Date(e.start_datetime) < now)
+      .sort((a, b) => new Date(b.start_datetime).getTime() - new Date(a.start_datetime).getTime());
   });
 
   // Carousel state
@@ -123,6 +145,23 @@ export class LandingPage implements OnDestroy {
       return startStr;
     }
     return `${startStr} – ${endStr}`;
+  }
+
+  // Hero carousel event handler
+  onHeroEventSelected(event: EventModel): void {
+    this.router.navigate(['/events', event.id]);
+  }
+
+  onGridEventClicked(event: EventModel): void {
+    this.router.navigate(['/events', event.id]);
+  }
+
+  onCalendarEventSelected(event: EventModel): void {
+    this.router.navigate(['/events', event.id]);
+  }
+
+  onPastEventClicked(event: EventModel): void {
+    this.router.navigate(['/events', event.id]);
   }
 
   ngOnDestroy(): void {

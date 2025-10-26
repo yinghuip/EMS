@@ -1,3 +1,12 @@
+<!-- Hero Carousel Section -->
+<app-hero-carousel
+  [events]="featuredEvents()"
+  [autoAdvanceInterval]="5000"
+  [autoRotate]="true"
+  [showControls]="true"
+  (eventSelected)="onHeroEventSelected($event)">
+</app-hero-carousel>
+
 <div class="container mt-4">
   @if (latest(); as latestEvent) {
     <app-feature-event [event]="latestEvent"></app-feature-event>
@@ -5,60 +14,19 @@
 
   <section class="upcoming-events mt-4">
     <h2>Upcoming events</h2>
-    @if (upcomingEvents().length === 0) {
-      <div class="empty-state p-3 rounded" role="status">
-        <p class="mb-2">No upcoming events.</p>
-        <a class="btn btn-outline-primary" routerLink="/events">View all events</a>
-      </div>
-    }
-    @else {
-      <div
-        class="carousel"
-        role="region"
-        aria-label="Upcoming events"
-        aria-live="polite"
-      >
-        @for (event of upcomingEvents(); track event.id; let i = $index) {
-          <a
-            class="carousel-item"
-            [class]="'carousel-item ' + getItemClass(i)"
-            [routerLink]="['/events', event.id]"
-            [attr.tabindex]="i === currentIndex() ? 0 : -1"
-            [attr.aria-hidden]="i === currentIndex() ? 'false' : 'true'"
-          >
-            <img
-              class="carousel-image"
-              [src]="event.image_url || 'assets/images/ng-conf.png'"
-              [alt]="event.title"
-            />
-            <div class="carousel-info">
-              <h3 class="event-title">{{ event.title }}</h3>
-              <p class="event-dates">{{ formatDateRange(event.start_datetime, event.end_datetime) }}</p>
-            </div>
-          </a>
-        }
-        
-        <button
-          class="carousel-control carousel-control-prev"
-          type="button"
-          (click)="goToPrevious()"
-          aria-label="Previous event"
-        >
-          <span class="carousel-control-icon" aria-hidden="true">‹</span>
-        </button>
-        
-        <button
-          class="carousel-control carousel-control-next"
-          type="button"
-          (click)="goToNext()"
-          aria-label="Next event"
-        >
-          <span class="carousel-control-icon" aria-hidden="true">›</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <a class="btn btn-link text-muted" routerLink="/events">View all events</a>
-      </div>
-    }
+    <app-event-grid [events]="upcomingEvents()" [initialCount]="3" (eventClicked)="onGridEventClicked($event)"></app-event-grid>
+    <div class="mt-3">
+      <a class="btn btn-link text-muted" routerLink="/events">View all events</a>
+    </div>
+  </section>
+
+  <section class="mt-5">
+    <h2>Calendar</h2>
+    <app-calendar-view [events]="upcomingEvents()" (eventSelected)="onCalendarEventSelected($event)"></app-calendar-view>
+  </section>
+
+  <section class="mt-5">
+    <h2>Past concerts</h2>
+    <app-past-concerts [events]="pastEvents()" (eventClicked)="onPastEventClicked($event)"></app-past-concerts>
   </section>
 </div>

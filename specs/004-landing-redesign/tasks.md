@@ -36,10 +36,10 @@ Tests: `ems-frontend/src/app/` for unit tests (*.spec.ts), `ems-frontend/e2e/` f
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Update Event model interface in ems-frontend/src/app/models/event.model.ts to include optional speaker_name field for past events
-- [ ] T005 Update LandingPage component in ems-frontend/src/app/pages/landing/landing.page.ts to add computed signals for featuredEvents and pastEvents
-- [ ] T006 [P] Create shared utility functions for date formatting in ems-frontend/src/app/utils/date-utils.ts (if not exists)
-- [ ] T007 [P] Document responsive breakpoint constants in ems-frontend/src/styles.scss or shared constants file
+- [X] T004 Update Event model interface in ems-frontend/src/app/models/event.model.ts to include optional speaker_name field for past events
+- [X] T005 Update LandingPage component in ems-frontend/src/app/pages/landing/landing.page.ts to add computed signals for featuredEvents and pastEvents
+- [X] T006 [P] Create shared utility functions for date formatting in ems-frontend/src/app/utils/date-utils.ts (if not exists)
+- [X] T007 [P] Document responsive breakpoint constants in ems-frontend/src/styles.scss or shared constants file
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -55,25 +55,25 @@ Tests: `ems-frontend/src/app/` for unit tests (*.spec.ts), `ems-frontend/e2e/` f
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T008 [P] [US1] Create hero carousel unit test spec in ems-frontend/src/app/components/hero-carousel/hero-carousel.component.spec.ts - test auto-advance logic
-- [ ] T009 [P] [US1] Create hero carousel unit test in same file - test manual navigation (goToNext, goToPrevious)
-- [ ] T010 [P] [US1] Create hero carousel unit test in same file - test event selection emission
-- [ ] T011 [P] [US1] Create E2E test in ems-frontend/e2e/landing-hero-carousel.spec.ts - test carousel visibility and auto-rotation
-- [ ] T012 [P] [US1] Create E2E test in same file - test manual navigation arrows click events
-- [ ] T013 [P] [US1] Create E2E test in same file - test navigation to event detail on carousel click
+- [X] T008 [P] [US1] Create hero carousel unit test spec in ems-frontend/src/app/components/hero-carousel/hero-carousel.component.spec.ts - test auto-advance logic
+- [X] T009 [P] [US1] Create hero carousel unit test in same file - test manual navigation (goToNext, goToPrevious)
+- [X] T010 [P] [US1] Create hero carousel unit test in same file - test event selection emission
+- [X] T011 [P] [US1] Create E2E test in ems-frontend/e2e/landing-hero-carousel.spec.ts - test carousel visibility and auto-rotation
+- [X] T012 [P] [US1] Create E2E test in same file - test manual navigation arrows click events
+- [X] T013 [P] [US1] Create E2E test in same file - test navigation to event detail on carousel click
 
 ### Implementation for User Story 1
 
-- [ ] T014 [US1] Generate HeroCarouselComponent using Angular CLI: ng generate component components/hero-carousel --standalone
-- [ ] T015 [US1] Implement component TypeScript logic in ems-frontend/src/app/components/hero-carousel/hero-carousel.component.ts (signals for currentIndex, previousIndex, direction, auto-advance timer, navigation methods)
-- [ ] T016 [US1] Implement component HTML template in ems-frontend/src/app/components/hero-carousel/hero-carousel.component.html (carousel structure, navigation arrows, event info overlay, clickable card with routerLink)
-- [ ] T017 [US1] Implement component SCSS styles in ems-frontend/src/app/components/hero-carousel/hero-carousel.component.scss (full-width layout, aspect ratio, carousel transitions, button styles, responsive adjustments)
-- [ ] T018 [US1] Add ARIA labels and keyboard navigation support in hero carousel component (aria-label on buttons, aria-live on carousel region, keyboard event handlers)
-- [ ] T019 [US1] Integrate HeroCarouselComponent into LandingPage template in ems-frontend/src/app/pages/landing/landing.page.html (add component with featuredEvents input and eventSelected output handler)
-- [ ] T020 [US1] Update LandingPage component in ems-frontend/src/app/pages/landing/landing.page.ts to handle eventSelected event and navigate to event detail page
-- [ ] T021 [US1] Test hero carousel with empty events array and single event edge cases
-- [ ] T022 [US1] Run unit tests: npm test -- --include='**/hero-carousel.component.spec.ts'
-- [ ] T023 [US1] Run E2E test: npx playwright test e2e/landing-hero-carousel.spec.ts
+- [X] T014 [US1] Generate HeroCarouselComponent using Angular CLI: ng generate component components/hero-carousel --standalone
+- [X] T015 [US1] Implement component TypeScript logic in ems-frontend/src/app/components/hero-carousel/hero-carousel.component.ts (signals for currentIndex, previousIndex, direction, auto-advance timer, navigation methods)
+- [X] T016 [US1] Implement component HTML template in ems-frontend/src/app/components/hero-carousel/hero-carousel.component.html (carousel structure, navigation arrows, event info overlay, clickable card with routerLink)
+- [X] T017 [US1] Implement component SCSS styles in ems-frontend/src/app/components/hero-carousel/hero-carousel.component.scss (full-width layout, aspect ratio, carousel transitions, button styles, responsive adjustments)
+- [X] T018 [US1] Add ARIA labels and keyboard navigation support in hero carousel component (aria-label on buttons, aria-live on carousel region, keyboard event handlers)
+- [X] T019 [US1] Integrate HeroCarouselComponent into LandingPage template in ems-frontend/src/app/pages/landing/landing.page.html (add component with featuredEvents input and eventSelected output handler)
+- [X] T020 [US1] Update LandingPage component in ems-frontend/src/app/pages/landing/landing.page.ts to handle eventSelected event and navigate to event detail page
+- [X] T021 [US1] Test hero carousel with empty events array and single event edge cases
+- [X] T022 [US1] Run unit tests: npm test -- --include='**/hero-carousel.component.spec.ts'
+- [X] T023 [US1] Run E2E test: npx playwright test e2e/landing-hero-carousel.spec.ts
 
 **Checkpoint**: Hero carousel should be fully functional - auto-rotates, manual navigation works, clicks navigate to event pages
 
@@ -87,26 +87,26 @@ Tests: `ems-frontend/src/app/` for unit tests (*.spec.ts), `ems-frontend/e2e/` f
 
 ### Tests for User Story 2
 
-- [ ] T024 [P] [US2] Create event grid unit test spec in ems-frontend/src/app/components/event-grid/event-grid.component.spec.ts - test pagination state management
-- [ ] T025 [P] [US2] Create event grid unit test in same file - test loadMore functionality
+- [X] T024 [P] [US2] Create event grid unit test spec in ems-frontend/src/app/components/event-grid/event-grid.component.spec.ts - test pagination state management
+- [X] T025 [P] [US2] Create event grid unit test in same file - test loadMore functionality
 - [ ] T026 [P] [US2] Create event grid unit test in same file - test event click emission
 - [ ] T027 [P] [US2] Create event grid unit test in same file - test empty state display
-- [ ] T028 [P] [US2] Create E2E test in ems-frontend/e2e/landing-event-grid.spec.ts - test grid displays with correct column counts
+- [X] T028 [P] [US2] Create E2E test in ems-frontend/e2e/landing-event-grid.spec.ts - test grid displays with correct column counts
 - [ ] T029 [P] [US2] Create E2E test in same file - test "Load More" button functionality
 - [ ] T030 [P] [US2] Create E2E test in same file - test event card navigation
 
 ### Implementation for User Story 2
 
-- [ ] T031 [US2] Generate EventGridComponent using Angular CLI: ng generate component components/event-grid --standalone
-- [ ] T032 [US2] Implement component TypeScript logic in ems-frontend/src/app/components/event-grid/event-grid.component.ts (signals for displayCount, pagination state, loadMore method, event click handler)
-- [ ] T033 [US2] Implement component HTML template in ems-frontend/src/app/components/event-grid/event-grid.component.html (Bootstrap grid with responsive columns, event cards with routerLink, "Load More" button, empty state)
-- [ ] T034 [US2] Implement component SCSS styles in ems-frontend/src/app/components/event-grid/event-grid.component.scss (grid spacing, card hover effects, button styling, responsive adjustments)
-- [ ] T035 [US2] Reuse or enhance existing EventCardComponent in ems-frontend/src/app/components/event-card/ for grid display (ensure it shows image, title, date, venue)
-- [ ] T036 [US2] Integrate EventGridComponent into LandingPage template in ems-frontend/src/app/pages/landing/landing.page.html below hero carousel (pass upcomingEvents, handle eventClicked output)
-- [ ] T037 [US2] Update LandingPage component in ems-frontend/src/app/pages/landing/landing.page.ts to handle event grid click navigation
+- [X] T031 [US2] Generate EventGridComponent using Angular CLI: ng generate component components/event-grid --standalone
+- [X] T032 [US2] Implement component TypeScript logic in ems-frontend/src/app/components/event-grid/event-grid.component.ts (signals for displayCount, pagination state, loadMore method, event click handler)
+- [X] T033 [US2] Implement component HTML template in ems-frontend/src/app/components/event-grid/event-grid.component.html (Bootstrap grid with responsive columns, event cards with routerLink, "Load More" button, empty state)
+- [X] T034 [US2] Implement component SCSS styles in ems-frontend/src/app/components/event-grid/event-grid.component.scss (grid spacing, card hover effects, button styling, responsive adjustments)
+- [X] T035 [US2] Reuse or enhance existing EventCardComponent in ems-frontend/src/app/components/event-card/ for grid display (ensure it shows image, title, date, venue)
+- [X] T036 [US2] Integrate EventGridComponent into LandingPage template in ems-frontend/src/app/pages/landing/landing.page.html below hero carousel (pass upcomingEvents, handle eventClicked output)
+- [X] T037 [US2] Update LandingPage component in ems-frontend/src/app/pages/landing/landing.page.ts to handle event grid click navigation
 - [ ] T038 [US2] Test event grid with various event counts (0, 1, 12, 50+ events) and verify pagination
-- [ ] T039 [US2] Run unit tests: npm test -- --include='**/event-grid.component.spec.ts'
-- [ ] T040 [US2] Run E2E test: npx playwright test e2e/landing-event-grid.spec.ts
+- [X] T039 [US2] Run unit tests: npm test -- --include='**/event-grid.component.spec.ts'
+- [X] T040 [US2] Run E2E test: npx playwright test e2e/landing-event-grid.spec.ts
 
 **Checkpoint**: Event grid displays correctly with pagination, all responsive breakpoints work, navigation functional
 
@@ -120,20 +120,20 @@ Tests: `ems-frontend/src/app/` for unit tests (*.spec.ts), `ems-frontend/e2e/` f
 
 ### Tests for User Story 5
 
-- [ ] T041 [P] [US5] Create responsive layout E2E test in ems-frontend/e2e/landing-responsive.spec.ts - test mobile viewport (375px)
-- [ ] T042 [P] [US5] Create E2E test in same file - test tablet viewport (768px)
-- [ ] T043 [P] [US5] Create E2E test in same file - test desktop viewport (1200px)
+- [X] T041 [P] [US5] Create responsive layout E2E test in ems-frontend/e2e/landing-responsive.spec.ts - test mobile viewport (375px)
+- [X] T042 [P] [US5] Create E2E test in same file - test tablet viewport (768px)
+- [X] T043 [P] [US5] Create E2E test in same file - test desktop viewport (1200px)
 - [ ] T044 [P] [US5] Create E2E test in same file - test touch target sizes on mobile (minimum 44x44px)
 
 ### Implementation for User Story 5
 
 - [ ] T045 [US5] Add responsive media queries to hero carousel SCSS in ems-frontend/src/app/components/hero-carousel/hero-carousel.component.scss (adjust aspect ratio, font sizes, button sizes for mobile/tablet)
-- [ ] T046 [US5] Verify event grid Bootstrap responsive classes in ems-frontend/src/app/components/event-grid/event-grid.component.html (.col-12 .col-md-6 .col-lg-3)
-- [ ] T047 [US5] Add responsive adjustments to landing page SCSS in ems-frontend/src/app/pages/landing/landing.page.scss (container padding, section spacing for mobile)
+- [X] T046 [US5] Verify event grid Bootstrap responsive classes in ems-frontend/src/app/components/event-grid/event-grid.component.html (.col-12 .col-md-6 .col-lg-3)
+- [X] T047 [US5] Add responsive adjustments to landing page SCSS in ems-frontend/src/app/pages/landing/landing.page.scss (container padding, section spacing for mobile)
 - [ ] T048 [US5] Test all interactive elements for touch target size on mobile (carousel arrows, event cards, buttons)
 - [ ] T049 [US5] Add viewport meta tag verification in ems-frontend/src/index.html (ensure viewport meta tag exists)
 - [ ] T050 [US5] Test horizontal scrolling at all breakpoints and fix any overflow issues
-- [ ] T051 [US5] Run E2E tests: npx playwright test e2e/landing-responsive.spec.ts
+- [X] T051 [US5] Run E2E tests: npx playwright test e2e/landing-responsive.spec.ts
 
 **Checkpoint**: All sections responsive at mobile (1 col), tablet (2 col), desktop (4 col) breakpoints, touch targets adequate
 
@@ -147,26 +147,26 @@ Tests: `ems-frontend/src/app/` for unit tests (*.spec.ts), `ems-frontend/e2e/` f
 
 ### Tests for User Story 3
 
-- [ ] T052 [P] [US3] Create calendar view unit test spec in ems-frontend/src/app/components/calendar-view/calendar-view.component.spec.ts - test month grouping logic
-- [ ] T053 [P] [US3] Create calendar view unit test in same file - test search debounce functionality (300ms)
-- [ ] T054 [P] [US3] Create calendar view unit test in same file - test search filtering across title, venue, description fields
+- [X] T052 [P] [US3] Create calendar view unit test spec in ems-frontend/src/app/components/calendar-view/calendar-view.component.spec.ts - test month grouping logic
+- [X] T053 [P] [US3] Create calendar view unit test in same file - test search debounce functionality (300ms)
+- [X] T054 [P] [US3] Create calendar view unit test in same file - test search filtering across title, venue, description fields
 - [ ] T055 [P] [US3] Create calendar view unit test in same file - test event selection emission
-- [ ] T056 [P] [US3] Create E2E test in ems-frontend/e2e/landing-calendar.spec.ts - test calendar section visibility and month groupings
+- [X] T056 [P] [US3] Create E2E test in ems-frontend/e2e/landing-calendar.spec.ts - test calendar section visibility and month groupings
 - [ ] T057 [P] [US3] Create E2E test in same file - test search bar filtering updates event list
 - [ ] T058 [P] [US3] Create E2E test in same file - test "Find Tickets" button navigation
 
 ### Implementation for User Story 3
 
-- [ ] T059 [US3] Generate CalendarViewComponent using Angular CLI: ng generate component components/calendar-view --standalone
-- [ ] T060 [US3] Implement component TypeScript logic in ems-frontend/src/app/components/calendar-view/calendar-view.component.ts (signals for searchTerm, filteredEvents, calendarMonths computed, RxJS debounce on search input, grouping logic)
-- [ ] T061 [US3] Implement component HTML template in ems-frontend/src/app/components/calendar-view/calendar-view.component.html (search input, month sections, event entries with date/day/title/venue/button)
-- [ ] T062 [US3] Implement component SCSS styles in ems-frontend/src/app/components/calendar-view/calendar-view.component.scss (search bar styling, month section headers, event entry layout, responsive adjustments)
-- [ ] T063 [US3] Implement groupEventsByMonth utility function in component or separate utility file (group events by month string, sort by date)
-- [ ] T064 [US3] Add search input with debounce logic using RxJS debounceTime(300) operator in component
-- [ ] T065 [US3] Integrate CalendarViewComponent into LandingPage template in ems-frontend/src/app/pages/landing/landing.page.html below event grid (pass upcomingEvents, handle eventSelected)
+- [X] T059 [US3] Generate CalendarViewComponent using Angular CLI: ng generate component components/calendar-view --standalone
+- [X] T060 [US3] Implement component TypeScript logic in ems-frontend/src/app/components/calendar-view/calendar-view.component.ts (signals for searchTerm, filteredEvents, calendarMonths computed, RxJS debounce on search input, grouping logic)
+- [X] T061 [US3] Implement component HTML template in ems-frontend/src/app/components/calendar-view/calendar-view.component.html (search input, month sections, event entries with date/day/title/venue/button)
+- [X] T062 [US3] Implement component SCSS styles in ems-frontend/src/app/components/calendar-view/calendar-view.component.scss (search bar styling, month section headers, event entry layout, responsive adjustments)
+- [X] T063 [US3] Implement groupEventsByMonth utility function in component or separate utility file (group events by month string, sort by date)
+- [X] T064 [US3] Add search input with debounce logic using RxJS debounceTime(300) operator in component
+- [X] T065 [US3] Integrate CalendarViewComponent into LandingPage template in ems-frontend/src/app/pages/landing/landing.page.html below event grid (pass upcomingEvents, handle eventSelected)
 - [ ] T066 [US3] Test calendar with various event distributions (single month, multiple months, empty months, search edge cases)
-- [ ] T067 [US3] Run unit tests: npm test -- --include='**/calendar-view.component.spec.ts'
-- [ ] T068 [US3] Run E2E test: npx playwright test e2e/landing-calendar.spec.ts
+- [X] T067 [US3] Run unit tests: npm test -- --include='**/calendar-view.component.spec.ts'
+- [X] T068 [US3] Run E2E test: npx playwright test e2e/landing-calendar.spec.ts
 
 **Checkpoint**: Calendar displays events grouped by month, search filters in real-time with 300ms debounce, navigation works
 
@@ -180,26 +180,26 @@ Tests: `ems-frontend/src/app/` for unit tests (*.spec.ts), `ems-frontend/e2e/` f
 
 ### Tests for User Story 4
 
-- [ ] T069 [P] [US4] Create past concerts unit test spec in ems-frontend/src/app/components/past-concerts/past-concerts.component.spec.ts - test display count limit (8-12)
-- [ ] T070 [P] [US4] Create past concerts unit test in same file - test "View More" link visibility logic
+- [X] T069 [P] [US4] Create past concerts unit test spec in ems-frontend/src/app/components/past-concerts/past-concerts.component.spec.ts - test display count limit (8-12)
+- [X] T070 [P] [US4] Create past concerts unit test in same file - test "View More" link visibility logic
 - [ ] T071 [P] [US4] Create past concerts unit test in same file - test event click emission
 - [ ] T072 [P] [US4] Create past concerts unit test in same file - test empty state hiding
-- [ ] T073 [P] [US4] Create E2E test in ems-frontend/e2e/landing-past-concerts.spec.ts - test past concerts section displays
+- [X] T073 [P] [US4] Create E2E test in ems-frontend/e2e/landing-past-concerts.spec.ts - test past concerts section displays
 - [ ] T074 [P] [US4] Create E2E test in same file - test "View More" link functionality
 - [ ] T075 [P] [US4] Create E2E test in same file - test event card navigation
 
 ### Implementation for User Story 4
 
-- [ ] T076 [US4] Generate PastConcertsComponent using Angular CLI: ng generate component components/past-concerts --standalone
-- [ ] T077 [US4] Implement component TypeScript logic in ems-frontend/src/app/components/past-concerts/past-concerts.component.ts (signals for displayCount, maxDisplay=12, hasMore computed, showMore method)
-- [ ] T078 [US4] Implement component HTML template in ems-frontend/src/app/components/past-concerts/past-concerts.component.html (grid with responsive columns, event images with name overlay, "View More" link, empty state)
-- [ ] T079 [US4] Implement component SCSS styles in ems-frontend/src/app/components/past-concerts/past-concerts.component.scss (grid layout, image aspect ratio, name overlay styling, responsive 4-2-1 columns)
-- [ ] T080 [US4] Update LandingPage component in ems-frontend/src/app/pages/landing/landing.page.ts to add pastEvents computed signal (filter events with start_datetime < now, sort by date descending)
-- [ ] T081 [US4] Integrate PastConcertsComponent into LandingPage template in ems-frontend/src/app/pages/landing/landing.page.html at bottom (pass pastEvents, handle eventClicked and viewMoreClicked)
+- [X] T076 [US4] Generate PastConcertsComponent using Angular CLI: ng generate component components/past-concerts --standalone
+- [X] T077 [US4] Implement component TypeScript logic in ems-frontend/src/app/components/past-concerts/past-concerts.component.ts (signals for displayCount, maxDisplay=12, hasMore computed, showMore method)
+- [X] T078 [US4] Implement component HTML template in ems-frontend/src/app/components/past-concerts/past-concerts.component.html (grid with responsive columns, event images with name overlay, "View More" link, empty state)
+- [X] T079 [US4] Implement component SCSS styles in ems-frontend/src/app/components/past-concerts/past-concerts.component.scss (grid layout, image aspect ratio, name overlay styling, responsive 4-2-1 columns)
+- [X] T080 [US4] Update LandingPage component in ems-frontend/src/app/pages/landing/landing.page.ts to add pastEvents computed signal (filter events with start_datetime < now, sort by date descending)
+- [X] T081 [US4] Integrate PastConcertsComponent into LandingPage template in ems-frontend/src/app/pages/landing/landing.page.html at bottom (pass pastEvents, handle eventClicked and viewMoreClicked)
 - [ ] T082 [US4] Handle empty pastEvents array to hide section in landing page or component
 - [ ] T083 [US4] Test with various past event counts (0, 5, 12, 20+ events) and verify display logic
-- [ ] T084 [US4] Run unit tests: npm test -- --include='**/past-concerts.component.spec.ts'
-- [ ] T085 [US4] Run E2E test: npx playwright test e2e/landing-past-concerts.spec.ts
+- [X] T084 [US4] Run unit tests: npm test -- --include='**/past-concerts.component.spec.ts'
+- [X] T085 [US4] Run E2E test: npx playwright test e2e/landing-past-concerts.spec.ts
 
 **Checkpoint**: Past concerts gallery displays 8-12 events, "View More" appears when needed, section hidden if no past events
 
@@ -209,21 +209,21 @@ Tests: `ems-frontend/src/app/` for unit tests (*.spec.ts), `ems-frontend/e2e/` f
 
 **Purpose**: Improvements that affect multiple user stories and final quality checks
 
-- [ ] T086 [P] Add loading states for event data in ems-frontend/src/app/pages/landing/landing.page.html (skeleton loaders or spinners)
-- [ ] T087 [P] Implement image lazy loading for below-fold content (event grid, calendar, past concerts) using loading="lazy" attribute
-- [ ] T088 [P] Add error handling for image load failures across all components (onError handler with fallback placeholder)
+- [X] T086 [P] Add loading states for event data in ems-frontend/src/app/pages/landing/landing.page.html (skeleton loaders or spinners)
+- [X] T087 [P] Implement image lazy loading for below-fold content (event grid, calendar, past concerts) using loading="lazy" attribute
+- [X] T088 [P] Add error handling for image load failures across all components (onError handler with fallback placeholder)
 - [ ] T089 [P] Verify all ARIA labels and semantic HTML across components for accessibility compliance
 - [ ] T090 [P] Test keyboard navigation flow through all interactive elements (Tab key navigation order)
 - [ ] T091 [P] Add console.log removal or guard for production builds in all components
 - [ ] T092 [P] Verify color theme consistency across all new components (use CSS variables from styles.scss)
 - [ ] T093 Performance audit: Test hero carousel load time <2s, verify 60fps transitions
 - [ ] T094 Performance audit: Test calendar search debounce <300ms, grid pagination <500ms
-- [ ] T095 [P] Run full E2E test suite: npm run test:e2e
-- [ ] T096 [P] Run full unit test suite with coverage: ng test --code-coverage --watch=false
+- [X] T095 [P] Run full E2E test suite: npm run test:e2e
+- [X] T096 [P] Run full unit test suite with coverage: ng test --code-coverage --watch=false
 - [ ] T097 Code review: Check all components follow Angular standalone pattern and signal-based state
 - [ ] T098 Code review: Verify all components have proper TypeScript types and no 'any' usage
 - [ ] T099 [P] Update landing page documentation in project README if needed
-- [ ] T100 Run quickstart.md validation steps (ng serve, ng build, test commands)
+- [X] T100 Run quickstart.md validation steps (ng serve, ng build, test commands)
 
 ---
 

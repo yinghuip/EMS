@@ -11,8 +11,8 @@
   <a class="card-link-overlay" [routerLink]="['/events', event()?.id]" (click)="$event.stopPropagation()" aria-hidden="true"></a>
   <div class="row g-0">
     <div class="col-4">
-      @if (event()?.image_url) {
-        <img [src]="event()?.image_url" class="img-fluid" [alt]="event()?.title || 'Event image'" />
+        @if (event()?.image_url) {
+          <img [src]="event()?.image_url" class="img-fluid" [alt]="event()?.title || 'Event image'" loading="lazy" (error)="onImgError($event)" />
       }
     </div>
     <div class="col-8">

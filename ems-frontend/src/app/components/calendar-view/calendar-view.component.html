@@ -1,0 +1,38 @@
+<section class="calendar-view" aria-label="Event calendar">
+  <div class="searchbar mb-3">
+    <label for="calendar-search" class="form-label">Search events</label>
+    <input
+      id="calendar-search"
+      type="search"
+      class="form-control"
+      placeholder="Search by title, venue, description"
+      #q
+      (input)="onSearchInput(q.value)"
+      aria-describedby="calendar-help"
+    />
+    <div id="calendar-help" class="form-text">Type to filter; results update after a brief pause.</div>
+  </div>
+
+  @if (monthGroups().length === 0) {
+    <div class="empty-state p-3 rounded" role="status">No matching events found.</div>
+  }
+  @for (group of monthGroups(); track group.key) {
+    <div class="month-group mb-4">
+      <h3 class="h5 month-heading">{{ group.label }}</h3>
+      <ul class="list-unstyled">
+        @for (e of group.events; track e.id) {
+          <li class="event-entry d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-3">
+              <img class="thumb" [src]="e.image_url" [alt]="e.title" loading="lazy" (error)="onImgError($event)" />
+              <div>
+                <div class="title h6 mb-0">{{ e.title }}</div>
+                <div class="meta text-muted small">{{ $any(e).location?.name }} • {{ e.start_datetime | date:'mediumDate' }}</div>
+              </div>
+            </div>
+            <a class="btn btn-sm btn-primary" [routerLink]="['/events', e.id]" (click)="$event.stopPropagation()">Find Tickets</a>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+</section>

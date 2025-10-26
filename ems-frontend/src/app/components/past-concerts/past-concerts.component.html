@@ -1,0 +1,24 @@
+<section class="past-concerts" aria-label="Past concerts">
+  @if (events().length === 0) {
+    <div class="d-none"></div>
+  }
+  @else {
+    <div class="row g-3">
+      @for (e of visible(); track e.id) {
+        <div class="col-12 col-md-6 col-lg-3">
+          <a class="thumb-card" [routerLink]="['/events', e.id]">
+            <img class="thumb" [src]="e.image_url" [alt]="e.title" loading="lazy" (error)="onImgError($event)" />
+            <div class="overlay">
+              <div class="name">{{ e.speaker_name || e.title }}</div>
+            </div>
+          </a>
+        </div>
+      }
+    </div>
+    @if (hasMore()) {
+      <div class="mt-3 text-center">
+        <button type="button" class="btn btn-outline-secondary" (click)="showMore()">View More</button>
+      </div>
+    }
+  }
+</section>
