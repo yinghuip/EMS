@@ -9,13 +9,13 @@
 >
   <!-- overlay anchor covers the card and delegates navigation to RouterLink; stopPropagation prevents double handlers -->
   <a class="card-link-overlay" [routerLink]="['/events', event()?.id]" (click)="$event.stopPropagation()" aria-hidden="true"></a>
-  <div class="row g-0">
-    <div class="col-4">
+  <div class="d-flex flex-column g-0 h-100">
+    <div class="h-50">
         @if (event()?.image_url) {
           <img [src]="event()?.image_url" class="img-fluid" [alt]="event()?.title || 'Event image'" loading="lazy" (error)="onImgError($event)" />
       }
     </div>
-    <div class="col-8">
+    <div class="h-50">
       <mat-card-content class="p-2">
         <h3 class="h6 mb-1">{{ event()?.title }}</h3>
         <p class="mb-1 text-muted small">{{ event()?.short_description }}</p>
