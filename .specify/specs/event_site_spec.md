@@ -164,7 +164,7 @@ Minimal deliverables for first milestone (MVP)
 
 Next steps I can take for you
 - Scaffold a starter project for your chosen stack (Next.js or Vite + backend) with the pages and example data.
-- Create basic HTML/CSS mockups for the hero and event card components.
+- Create basic HTML/CSS mockups for the feature and event card components.
 - Implement the API endpoints and a tiny frontend to connect to them.
 
 ---

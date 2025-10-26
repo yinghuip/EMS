@@ -22,8 +22,9 @@
       </div>
 
       <button class="btn btn-primary" type="submit">Submit</button>
+        <a class="btn btn-secondary ms-2" [routerLink]="['/events', event.id]" *ngIf="event">Back to event</a>
 
-      <div *ngIf="success" class="alert alert-success mt-3">Registration successful — returning to event...</div>
+        <div *ngIf="success" class="alert alert-success mt-3">Registration successful — returning to event...</div>
     </form>
   </div>
 </ng-container>
