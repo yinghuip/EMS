@@ -1,0 +1,81 @@
+@import "bootstrap/scss/bootstrap";
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Global design tokens inspired by the provided screenshot */
+:root {
+	--bg: #0f0f10; /* page background */
+	--surface: #121214;
+	--muted: #9aa0a6;
+	--text: #ffffff;
+	--accent: #f4c542; /* warm yellow accent */
+	--accent-2: #e14b8b; /* secondary pink/purple */
+	--container-max: 1100px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+html, body {
+	height: 100%;
+	background: var(--bg);
+	color: var(--text);
+	font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout helpers */
+.container {
+	max-width: var(--container-max);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Links & buttons */
+a { color: var(--accent); }
+
+.btn-primary {
+	background-color: var(--accent) !important;
+	border-color: rgba(0,0,0,0.12) !important;
+	color: #111 !important;
+	font-weight: 700;
+}
+
+/* Utility overrides to make Material + Bootstrap cohesive */
+.mat-raised-button.mat-primary {
+	background-color: var(--accent);
+	color: #111;
+	box-shadow: none;
+}
+
+/* Global headings */
+h1, h2, h3, h4 { color: var(--text); font-weight: 700; }
+h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+
+/* Footer */
+footer.site-footer { padding: 3rem 1rem; color: var(--muted); text-align: center; }
+
+/* Sticky header / nav */
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 1100;
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	background: linear-gradient(90deg, rgba(8,8,10,0.65), rgba(8,8,10,0.4));
+	border-bottom: 1px solid rgba(255,255,255,0.04);
+	transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.site-header.scrolled {
+	background: rgba(10,10,12,0.9);
+	box-shadow: 0 6px 18px rgba(2,2,4,0.45);
+	transform: translateY(0);
+}
+
+/* push main content down a bit so content isn't obscured on some devices */
+main { scroll-margin-top: 6rem; }
+
+@media (max-width: 768px) {
+	main { scroll-margin-top: 5rem; }
+}
+

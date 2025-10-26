@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <ng-container *ngIf="latest$ | async as latest">
+    <app-hero [event]="latest"></app-hero>
+  </ng-container>
+
+  <section class="upcoming-events mt-4">
+    <h2>Upcoming events</h2>
+    <div class="row">
+      <div class="col-12" *ngFor="let e of (events$ | async)">
+        <app-event-card [event]="e"></app-event-card>
+      </div>
+    </div>
+  </section>
+</div>

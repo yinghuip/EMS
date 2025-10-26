@@ -1,0 +1,14 @@
+<mat-card class="event-card mb-3">
+  <div class="row g-0">
+    <div class="col-4">
+      <img *ngIf="event?.hero_image_url" [src]="event?.hero_image_url" class="img-fluid" alt="{{event?.title}}" />
+    </div>
+    <div class="col-8">
+      <mat-card-content class="p-2">
+        <h3 class="h6 mb-1"><a [routerLink]="['/events', event?.id]">{{ event?.title }}</a></h3>
+        <p class="mb-1 text-muted small">{{ event?.short_description }}</p>
+        <p class="small text-muted">{{ event?.start_datetime | date:'medium' }}</p>
+      </mat-card-content>
+    </div>
+  </div>
+</mat-card>

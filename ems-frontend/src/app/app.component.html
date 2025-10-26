@@ -1,0 +1,26 @@
+
+<header class="site-header py-3" [class.scrolled]="isScrolled" style="background:linear-gradient(90deg, rgba(0,0,0,0.6), transparent);">
+	<div class="container d-flex align-items-center justify-content-between">
+		<div class="brand d-flex align-items-center gap-3">
+			<div class="brand-mark" style="width:44px;height:44px;background:var(--accent);border-radius:6px;"></div>
+			<div class="brand-title">EMS</div>
+		</div>
+		<nav class="nav d-none d-md-flex align-items-center gap-3">
+			<a routerLink="/" class="nav-link">Home</a>
+			<a routerLink="/about" class="nav-link">About</a>
+			<a routerLink="/events/1" class="nav-link">Events</a>
+			<a class="btn btn-outline-light" href="#">Register</a>
+		</nav>
+		<button class="btn btn-primary d-md-none">Menu</button>
+	</div>
+</header>
+
+<main>
+	<router-outlet></router-outlet>
+</main>
+
+<footer class="site-footer">
+	<div class="container">
+		<p>© <span id="year">2025</span> EMS — Built with Angular</p>
+	</div>
+</footer>

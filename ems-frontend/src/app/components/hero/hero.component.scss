@@ -1,0 +1,47 @@
+.hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,8,10,0.6), rgba(8,8,10,0.75));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 1rem;
+  color: #fff;
+  max-width: 720px;
+}
+
+.hero-pill {
+  display: inline-block;
+  background: rgba(255,255,255,0.08);
+  color: var(--accent);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
+  margin: 0.25rem 0 0.5rem 0;
+  line-height: 1;
+}
+
+.hero-blurb { color: rgba(255,255,255,0.85); margin-bottom: 1.25rem; }
+
+.hero-actions .btn { font-weight: 700; }
+
+@media (max-width: 768px) {
+  .hero-content { padding: 2rem 1rem; }
+  .hero { min-height: 50vh; }
+}
