@@ -1,6 +1,7 @@
 import { Injectable, signal, computed } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { EventModel } from '../models/event.model';
 
 @Injectable({ providedIn: 'root' })
@@ -507,15 +508,20 @@ export class EventService {
     )[0];
   });
 
+  // Expose observables created in the injection context (field initializers)
+  // so tests and consumers can subscribe without hitting NG0203.
+  readonly events$: Observable<EventModel[]> = toObservable(this.eventsSignal);
+  readonly latest$: Observable<EventModel | undefined> = toObservable(this.latestEventSignal);
+
   getEvents(): Observable<EventModel[]> {
-    return toObservable(this.eventsSignal);
+    return this.events$;
   }
 
   getLatest(): Observable<EventModel | undefined> {
-    return toObservable(this.latestEventSignal);
+    return this.latest$;
   }
 
   getEventById(id: string): Observable<EventModel | undefined> {
-    return toObservable(computed(() => this.eventsSignal().find(e => e.id === id)));
+    return this.events$.pipe(map(list => list.find(e => e.id === id)));
   }
 }

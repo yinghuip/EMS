@@ -6,11 +6,26 @@
   <section class="upcoming-events mt-4">
     <h2>Upcoming events</h2>
     <div class="row">
-      @for (event of events(); track event.id) {
+      @if (upcomingEvents().length === 0) {
         <div class="col-12">
-          <app-event-card [event]="event"></app-event-card>
+          <div class="empty-state p-3 rounded" role="status">
+            <p class="mb-2">No upcoming events in the next 90 days.</p>
+            <a class="btn btn-outline-primary" routerLink="/events">View all events</a>
+          </div>
         </div>
       }
+      @else {
+        @for (event of upcomingEvents(); track event.id) {
+          <div class="col-12">
+            <app-event-card [event]="event"></app-event-card>
+          </div>
+        }
+      }
     </div>
+    @if (upcomingEvents().length > 0) {
+      <div class="mt-3">
+        <a class="btn btn-link text-muted" routerLink="/events">View all events</a>
+      </div>
+    }
   </section>
 </div>

@@ -1,30 +1,29 @@
 @if (event(); as event) {
-  <div class="container mt-4">
-    <h1>{{ event.title }}</h1>
-    <p class="text-warning">{{ event.start_datetime | date:'fullDate' }} • {{ event.location?.name }}</p>
+<div class="container mt-4">
+  <h1>{{ event.title }}</h1>
+  <p class="text-warning">{{ event.start_datetime | date:'fullDate' }} • {{ event.location?.name }}</p>
 
-    @if (event.hero_image_url) {
-      <img [src]="event.hero_image_url" class="img-fluid mb-3" [alt]="event.title" />
-    }
+  @if (event.hero_image_url) {
+  <img [src]="event.hero_image_url" class="img-fluid mb-3" [alt]="event.title" />
+  }
 
-    <div [innerHTML]="event.description"></div>
+  <div [innerHTML]="event.description"></div>
 
-    @if (event.speakers?.length) {
-      <section>
-        <h2>Speakers</h2>
-        <ul>
-          @for (speaker of event.speakers; track speaker.name) {
-            <li>{{ speaker.name }} — {{ speaker.bio }}</li>
-          }
-        </ul>
-      </section>
-    }
+  @if (event.speakers?.length) {
+  <section>
+    <h2>Speakers</h2>
+    <ul>
+      @for (speaker of event.speakers; track speaker.name) {
+      <li>{{ speaker.name }} — {{ speaker.bio }}</li>
+      }
+    </ul>
+  </section>
+  }
 
-    <a class="btn btn-primary mt-3" [routerLink]="['/events', event.id, 'register']">Register</a>
-  </div>
+  <a class="btn btn-primary mt-3" [routerLink]="['/events', event.id, 'register']">Register</a>
+</div>
 } @else {
-  <div class="container mt-4">
-    <h2>Event not found</h2>
-  </div>
+<div class="container mt-4">
+  <h2>Event not found</h2>
+</div>
 }
-
