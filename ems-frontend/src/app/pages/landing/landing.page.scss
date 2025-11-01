@@ -1,3 +1,5 @@
-.upcoming-events h2 {
-  margin-bottom: 1rem;
+// Clean up: remove old local carousel styles and add a small helper for empty states
+.empty-state {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
 }

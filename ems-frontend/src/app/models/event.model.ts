@@ -26,4 +26,5 @@ export interface EventModel {
   tags: string[];
   published_at: string;
   is_featured: boolean;
+  speaker_name?: string; // Optional field for past concerts/events with primary speaker/artist display
 }

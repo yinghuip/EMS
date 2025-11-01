@@ -1,0 +1,152 @@
+<div class="hero-carousel" [class.has-controls]="showControls" aria-roledescription="carousel">
+  <!-- Carousel Container -->
+  <div class="carousel-viewport" aria-live="polite" aria-atomic="true">
+    @if (events.length === 0) {
+      <!-- Empty State -->
+      <div class="empty-state">
+        <img 
+          src="/assets/images/hero-fallback.svg" 
+          alt="No featured events available"
+          class="empty-image">
+        <p class="empty-text">No featured events at this time</p>
+      </div>
+    } @else {
+      <!-- Carousel Items -->
+      @for (event of events; track event.id; let i = $index) {
+        <div 
+          class="carousel-item"
+          [class]="getItemClass(i)"
+          [attr.aria-hidden]="i !== currentIndex()"
+          [attr.aria-label]="'Slide ' + (i + 1) + ' of ' + events.length">
+          
+          <!-- Event Card (clickable) -->
+          <a 
+            [routerLink]="['/events', event.id]"
+            class="event-card"
+            [attr.tabindex]="i === currentIndex() ? 0 : -1"
+            (click)="onEventClick(event)">
+            
+            <!-- Background Image -->
+            <div class="event-image">
+              <img 
+                [src]="event.image_url" 
+                [alt]="event.title"
+                (error)="onImageError($event)"
+                loading="eager">
+            </div>
+
+            <!-- Event Info Overlay -->
+            <div class="event-info">
+              <div class="event-content">
+                <div class="event-date">{{ formatEventDate(event) }}</div>
+                <h2 class="event-title">{{ event.title }}</h2>
+                <div class="event-venue">
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round"
+                    aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>{{ getEventLocation(event) }}</span>
+                </div>
+                <div class="event-description">{{ event.short_description }}</div>
+                <div class="cta-button">
+                  <span class="btn-text">View Event</span>
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="20" 
+                    height="20" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round"
+                    aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gradient Overlay for better text readability -->
+            <div class="overlay-gradient"></div>
+          </a>
+        </div>
+      }
+    }
+  </div>
+
+  <!-- Navigation Controls -->
+  @if (showControls && events.length > 1) {
+    <div class="carousel-controls">
+      <!-- Previous Button -->
+      <button 
+        type="button"
+        class="carousel-btn prev-btn"
+        aria-label="Previous slide"
+        (click)="goToPrevious()"
+        (keydown.enter)="goToPrevious()">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Next Button -->
+      <button 
+        type="button"
+        class="carousel-btn next-btn"
+        aria-label="Next slide"
+        (click)="goToNext()"
+        (keydown.enter)="goToNext()">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Pagination Indicators -->
+    <div class="carousel-indicators" role="tablist">
+      @for (event of events; track event.id; let i = $index) {
+        <button
+          type="button"
+          class="indicator"
+          [class.active]="i === currentIndex()"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+          [attr.aria-selected]="i === currentIndex()"
+          role="tab"
+          (click)="goToIndex(i)">
+        </button>
+      }
+    </div>
+  }
+</div>

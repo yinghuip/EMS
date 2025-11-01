@@ -1,3 +1,12 @@
+<!-- Hero Carousel Section -->
+<app-hero-carousel
+  [events]="featuredEvents()"
+  [autoAdvanceInterval]="5000"
+  [autoRotate]="true"
+  [showControls]="true"
+  (eventSelected)="onHeroEventSelected($event)">
+</app-hero-carousel>
+
 <div class="container mt-4">
   @if (latest(); as latestEvent) {
     <app-feature-event [event]="latestEvent"></app-feature-event>
@@ -5,27 +14,19 @@
 
   <section class="upcoming-events mt-4">
     <h2>Upcoming events</h2>
-    <div class="row">
-      @if (upcomingEvents().length === 0) {
-        <div class="col-12">
-          <div class="empty-state p-3 rounded" role="status">
-            <p class="mb-2">No upcoming events in the next 90 days.</p>
-            <a class="btn btn-outline-primary" routerLink="/events">View all events</a>
-          </div>
-        </div>
-      }
-      @else {
-        @for (event of upcomingEvents(); track event.id) {
-          <div class="col-12">
-            <app-event-card [event]="event"></app-event-card>
-          </div>
-        }
-      }
+    <app-event-grid [events]="upcomingEvents()" [initialCount]="3" (eventClicked)="onGridEventClicked($event)"></app-event-grid>
+    <div class="mt-3">
+      <a class="btn btn-link text-muted" routerLink="/events">View all events</a>
     </div>
-    @if (upcomingEvents().length > 0) {
-      <div class="mt-3">
-        <a class="btn btn-link text-muted" routerLink="/events">View all events</a>
-      </div>
-    }
+  </section>
+
+  <section class="mt-5">
+    <h2>Calendar</h2>
+    <app-calendar-view [events]="upcomingEvents()" (eventSelected)="onCalendarEventSelected($event)"></app-calendar-view>
+  </section>
+
+  <section class="mt-5">
+    <h2>Past concerts</h2>
+    <app-past-concerts [events]="pastEvents()" (eventClicked)="onPastEventClicked($event)"></app-past-concerts>
   </section>
 </div>

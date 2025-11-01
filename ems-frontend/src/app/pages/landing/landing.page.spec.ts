@@ -110,8 +110,7 @@ describe('LandingPage (integration)', () => {
     const localFixture = TestBed.createComponent(LandingPage);
     const localRouter = TestBed.inject(Router);
     localRouter.initialNavigation();
-    localFixture.detectChanges();
-    await localFixture.whenStable();
+  localFixture.detectChanges();
 
     const compiled = localFixture.nativeElement as HTMLElement;
     const cards = compiled.querySelectorAll('.upcoming-events .event-card');

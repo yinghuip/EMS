@@ -1,6 +1,6 @@
 @if (event(); as event) {
 <div class="container mt-4">
-  <h1>{{ event.title }}</h1>
+  <h1 class="event-detail-title">{{ event.title }}</h1>
   <p class="text-warning">{{ event.start_datetime | date:'fullDate' }} • {{ event.location.name }}</p>
 
   @if (event.image_url) {
@@ -11,7 +11,7 @@
 
   @if (event.speakers.length) {
   <section>
-    <h2>Speakers</h2>
+    <h3>Speakers</h3>
     <ul>
       @for (speaker of event.speakers; track speaker.name) {
       <li>{{ speaker.name }} — {{ speaker.bio }}</li>
